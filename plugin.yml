@@ -1,0 +1,6 @@
+name: ItemEditor
+version: 1.0
+main: eu.securebit.itemeditor.Main
+
+author: SecureBit
+authors: [Janhektor, Rincewind]
