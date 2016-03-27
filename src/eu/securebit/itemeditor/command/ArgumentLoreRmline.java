@@ -21,7 +21,7 @@ public class ArgumentLoreRmline extends Argument<Main> {
 
 	@Override
 	public String getSyntax() {
-		return "/describe rmline [index]";
+		return "/describe rmline [line]";
 	}
 
 	@Override
