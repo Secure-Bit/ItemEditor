@@ -1,10 +1,13 @@
 package eu.securebit.itemeditor;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import eu.securebit.itemeditor.command.CommandAddInfo;
+import eu.securebit.itemeditor.command.CommandArmor;
 import eu.securebit.itemeditor.command.CommandBreakable;
 import eu.securebit.itemeditor.command.CommandLore;
 import eu.securebit.itemeditor.command.CommandRemoveInfo;
@@ -46,6 +49,14 @@ public class Main extends JavaPlugin {
 		return builder.toString();
 	}
 	
+	public static boolean isLeatherArmor(ItemStack item) {
+		return item.getType() == Material.LEATHER_HELMET ||
+				item.getType() == Material.LEATHER_CHESTPLATE ||
+				item.getType() == Material.LEATHER_LEGGINGS ||
+				item.getType() == Material.LEATHER_BOOTS;
+				
+	}
+	
 	@Override
 	public void onLoad() {
 		Main.instance = this;
@@ -64,6 +75,7 @@ public class Main extends JavaPlugin {
 		new CommandAddInfo().create();
 		new CommandBreakable().create();
 		new CommandSkull().create();
+		new CommandArmor().create();
 		
 		Main.layout.message(sender, "Plugin started!");
 	}
