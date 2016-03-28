@@ -5,6 +5,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import eu.securebit.itemeditor.command.CommandAddInfo;
+import eu.securebit.itemeditor.command.CommandBreakable;
 import eu.securebit.itemeditor.command.CommandLore;
 import eu.securebit.itemeditor.command.CommandRemoveInfo;
 import eu.securebit.itemeditor.command.CommandRename;
@@ -60,6 +61,7 @@ public class Main extends JavaPlugin {
 		new CommandLore().create();
 		new CommandRemoveInfo().create();
 		new CommandAddInfo().create();
+		new CommandBreakable().create();
 		
 		Main.layout.message(sender, "Plugin started!");
 	}
