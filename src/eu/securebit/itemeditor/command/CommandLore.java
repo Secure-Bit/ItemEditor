@@ -26,7 +26,7 @@ public class CommandLore extends ArgumentedCommand implements DefaultExecutor {
 	public boolean onExecute(CommandSender sender, Command cmd, String label, String[] args) {
 		InfoLayout layout = Main.layout().clone();
 		layout.begin();
-		layout.category("Desrcibe$-Command");
+		layout.category("Describe$-Command");
 		layout.line("/describe addline <line>");
 		layout.line("/describe rmline [line]");
 		layout.line("/describe clear");
