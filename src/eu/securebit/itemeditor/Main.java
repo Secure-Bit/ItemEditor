@@ -9,6 +9,7 @@ import eu.securebit.itemeditor.command.CommandBreakable;
 import eu.securebit.itemeditor.command.CommandLore;
 import eu.securebit.itemeditor.command.CommandRemoveInfo;
 import eu.securebit.itemeditor.command.CommandRename;
+import eu.securebit.itemeditor.command.CommandSkull;
 import lib.securebit.itemeditor.InfoLayout;
 
 public class Main extends JavaPlugin {
@@ -62,6 +63,7 @@ public class Main extends JavaPlugin {
 		new CommandRemoveInfo().create();
 		new CommandAddInfo().create();
 		new CommandBreakable().create();
+		new CommandSkull().create();
 		
 		Main.layout.message(sender, "Plugin started!");
 	}
@@ -69,9 +71,7 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		ConsoleCommandSender sender = Bukkit.getConsoleSender();
-		Main.layout.message(sender, "Plugin stoped!");
-		
-		
+		Main.layout.message(sender, "Plugin stoped!");		
 	}
 	
 }
