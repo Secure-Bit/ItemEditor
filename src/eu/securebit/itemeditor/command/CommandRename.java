@@ -23,7 +23,6 @@ public class CommandRename extends UnargumentedCommand {
 		this.setUsage("/rename <new display name>");
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onExecute(CommandSender sender, Command cmd, String label, String[] args) {
 		Player player = (Player) sender;

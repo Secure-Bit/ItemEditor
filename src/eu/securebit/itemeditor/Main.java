@@ -8,7 +8,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import eu.securebit.itemeditor.command.CommandAddInfo;
 import eu.securebit.itemeditor.command.CommandArmor;
-import eu.securebit.itemeditor.command.CommandAttribute;
 import eu.securebit.itemeditor.command.CommandBreakable;
 import eu.securebit.itemeditor.command.CommandLore;
 import eu.securebit.itemeditor.command.CommandRemoveInfo;
@@ -50,32 +49,12 @@ public class Main extends JavaPlugin {
 		return builder.toString();
 	}
 	
-	public static int getMinecraftVersion() {
-		String versionString = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
-		versionString = versionString.substring(1, versionString.length() - 2);
-		versionString = versionString.replace("_", "");
-		return Integer.parseInt(versionString);
-	}
-	
 	public static boolean isLeatherArmor(ItemStack item) {
 		return item.getType() == Material.LEATHER_HELMET ||
 				item.getType() == Material.LEATHER_CHESTPLATE ||
 				item.getType() == Material.LEATHER_LEGGINGS ||
 				item.getType() == Material.LEATHER_BOOTS;
 				
-	}
-	
-	public static boolean isNumber(String string) {
-		return isNumber(string, Integer.MIN_VALUE, Integer.MAX_VALUE);
-	}
-	
-	public static boolean isNumber(String string, int minimum, int maximum) {
-		try {
-			int value = Integer.parseInt(string);
-			return minimum <= value && value <= maximum;
-		} catch (NumberFormatException exception) {
-			return false;
-		}
 	}
 	
 	@Override
@@ -89,6 +68,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		ConsoleCommandSender sender = Bukkit.getConsoleSender();
 		Main.layout.message(sender, "Creating commands...");
+		
 		new CommandRename().create();
 		new CommandLore().create();
 		new CommandRemoveInfo().create();
@@ -96,7 +76,6 @@ public class Main extends JavaPlugin {
 		new CommandBreakable().create();
 		new CommandSkull().create();
 		new CommandArmor().create();
-		new CommandAttribute().create();
 		
 		Main.layout.message(sender, "Plugin started!");
 	}

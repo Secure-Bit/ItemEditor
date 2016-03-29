@@ -33,7 +33,6 @@ public class ArgumentArmorColor extends Argument<Main> {
 		return true;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public boolean execute(CommandSender sender, Command cmd, String label, String[] args) {
 		Player player = (Player) sender;
