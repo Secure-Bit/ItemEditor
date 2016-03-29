@@ -23,6 +23,7 @@ public class CommandAddInfo extends UnargumentedCommand {
 		this.setUsage("/addinfo");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onExecute(CommandSender sender, Command cmd, String label, String[] args) {
 		Player player = (Player) sender;

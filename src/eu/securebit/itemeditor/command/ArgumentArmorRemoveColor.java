@@ -29,7 +29,8 @@ public class ArgumentArmorRemoveColor extends Argument<Main> {
 	public boolean isOnlyForPlayer() {
 		return true;
 	}
-
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean execute(CommandSender sender, Command cmd, String label, String[] args) {
 		Player player = (Player) sender;

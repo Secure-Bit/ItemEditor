@@ -22,6 +22,7 @@ public class CommandBreakable extends UnargumentedCommand {
 		this.setAliases("break");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onExecute(CommandSender sender, Command cmd, String label, String[] args) {
 		Player player = (Player) sender;
