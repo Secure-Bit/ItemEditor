@@ -21,6 +21,7 @@ public class CommandSkull extends UnargumentedCommand {
 		this.setPermission("ie.skull");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onExecute(CommandSender sender, Command cmd, String label, String[] args) {
 		Player player = (Player) sender;
