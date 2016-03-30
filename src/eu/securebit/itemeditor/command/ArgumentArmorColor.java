@@ -94,7 +94,6 @@ public class ArgumentArmorColor extends Argument<Main> {
 		LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
 		meta.setColor(color);
 		item.setItemMeta(meta);
-		player.getInventory().setItemInHand(item);
 		
 		int red = color.getRed();
 		int blue = color.getBlue();

@@ -59,9 +59,7 @@ public class ArgumentLoreClear extends Argument<Main> {
 		lore.clear();
 		meta.setLore(lore);
 		item.setItemMeta(meta);
-		
-		player.setItemInHand(item);
-		
+				
 		Main.layout().message(player, "+The description has been cleared!+");
 		return true;
 	}

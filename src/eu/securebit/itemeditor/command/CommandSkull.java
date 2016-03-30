@@ -31,9 +31,11 @@ public class CommandSkull extends UnargumentedCommand {
 			username = args[0];
 		}
 		
+		boolean alreadyInHand = false;
 		ItemStack skull = null;
 		if (player.getInventory().getItemInHand().getType() == Material.SKULL_ITEM) {
 			skull = player.getInventory().getItemInHand();
+			alreadyInHand = true;
 		} else {
 			skull = new ItemStack(Material.SKULL_ITEM, 1, (short) 3); 
 		}
@@ -45,7 +47,11 @@ public class CommandSkull extends UnargumentedCommand {
 		}
 		
 		skull.setItemMeta(meta);
-		player.getInventory().setItemInHand(skull);
+		
+		if (!alreadyInHand) {
+			player.getInventory().addItem(skull);
+		}
+		
 		Main.layout().message(player, "+Skull given! Username: " + username + "+");
 		
 		return true;

@@ -43,8 +43,6 @@ public class CommandRename extends UnargumentedCommand {
 		meta.setDisplayName("§r" + ChatColor.translateAlternateColorCodes('&', newName));
 		item.setItemMeta(meta);
 		
-		player.setItemInHand(item);
-		
 		Main.layout().message(player, "+ItemStack successfully renamed!+");
 		
 		return true;

@@ -44,7 +44,6 @@ public class ArgumentArmorRemoveColor extends Argument<Main> {
 		LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
 		meta.setColor(null);
 		item.setItemMeta(meta);
-		player.getInventory().setItemInHand(item);
 		
 		Main.layout().message(player, "+Color successfully removed!+");
 		

@@ -60,9 +60,7 @@ public class ArgumentLoreAddline extends Argument<Main> {
 		lore.add("§r" + ChatColor.translateAlternateColorCodes('&', Main.buildMessage(args, 1, args.length - 1)));
 		meta.setLore(lore);
 		item.setItemMeta(meta);
-		
-		player.setItemInHand(item);
-		
+				
 		Main.layout().message(player, "+The line has been added!+");
 		return true;
 	}

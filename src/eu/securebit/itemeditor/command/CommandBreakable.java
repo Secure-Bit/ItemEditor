@@ -45,9 +45,7 @@ public class CommandBreakable extends UnargumentedCommand {
 		
 		meta.spigot().setUnbreakable(unbreakable);
 		item.setItemMeta(meta);
-		
-		player.setItemInHand(item);
-		
+				
 		Main.layout().message(player, "+ItemStack successfully modified; unbreakable:+ *" + Boolean.toString(unbreakable) + "* +!+");
 		
 		return true;
