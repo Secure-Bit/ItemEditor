@@ -1,10 +1,6 @@
 package eu.securebit.itemeditor.command.abstracts;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.Random;
-import java.util.UUID;
-import java.util.concurrent.ThreadLocalRandom;
 
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -57,10 +53,7 @@ public abstract class ArgumentAttributeSet extends Argument<Main> {
 		if (info == null) {
 			Main.layout().message(player, "-No or malformed attribute information provided.-");
 			return true;
-		}
-		
-		// TODO Improve performance of this code by caching reflection lookups
-		
+		}		
 		
 		Object nmsItem = NBTReflection.convertToNMSItem(item);
 		Field fieldTag = ReflectionUtil.getDeclaredField(ReflectionUtil.getNMSClass("ItemStack"), "tag");
@@ -70,45 +63,11 @@ public abstract class ArgumentAttributeSet extends Argument<Main> {
 		}
 		
 		Object attributeList = NBTReflection.getAttributeList(tag);
-
-		{
-			Class<?> tlclass = ReflectionUtil.getNMSClass("NBTTagList");
-			Method methodSize = ReflectionUtil.getMethod(tlclass, "size", new Class<?>[0]);
-			Method methodGet = ReflectionUtil.getMethod(tlclass, "get", new Class[] { int.class });
-			Method methodGetString = ReflectionUtil.getMethod(ReflectionUtil.getNMSClass("NBTTagCompound"), "getString", new Class<?>[] { String.class });
-			Method methodRemove = ReflectionUtil.getMethod(tlclass, "remove", new Class[] { int.class });
-			Integer listSize = (Integer) ReflectionUtil.createObject(methodSize, attributeList);
-			for (int i = 0; i < listSize; i++) {
-				Object entry = ReflectionUtil.createObject(methodGet, attributeList, i);
-				String attrName = (String) ReflectionUtil.createObject(methodGetString, entry, "AttributeName");
-				if (attrName.equals(info.getAttributeName())) {
-					ReflectionUtil.invokeMethod(methodRemove, attributeList, i);
-				}
-			}
-		}
-		
+		NBTReflection.removeDuplicates(attributeList, info.getAttributeName());
 		Object attribute = NBTReflection.emptyCompound();
-		
-		{
-			Class<?> compoundC = ReflectionUtil.getNMSClass("NBTTagCompound");
-			Method a = ReflectionUtil.getMethod(compoundC, "a", new Class<?>[] { String.class, UUID.class });
-			Method setInt = ReflectionUtil.getMethod(compoundC, "setInt", new Class<?>[] { String.class, int.class });
-			Method setString = ReflectionUtil.getMethod(compoundC, "setString", new Class<?>[] { String.class, String.class });
-			Method setDouble = ReflectionUtil.getMethod(compoundC, "setDouble", new Class<?>[] { String.class, double.class });
-			
-			ReflectionUtil.invokeMethod(a, attribute, "UUID", ReflectionUtil.createStaticObject(ReflectionUtil.getMethod(ReflectionUtil.getNMSClass("MathHelper"), "a", new Class<?>[] { Random.class }), ThreadLocalRandom.current()));
-			ReflectionUtil.invokeMethod(setInt, attribute, "Operation", 0);
-			ReflectionUtil.invokeMethod(setDouble, attribute, "Amount", info.getAttributeValue());
-			ReflectionUtil.invokeMethod(setString, attribute, "Name", "CustomAttribute"); // name doesn't care
-			ReflectionUtil.invokeMethod(setString, attribute, "AttributeName", info.getAttributeName());
-		}
-		
-		Method methodAdd = ReflectionUtil.getMethod(ReflectionUtil.getNMSClass("NBTTagList"), "add", new Class<?>[] { ReflectionUtil.getNMSClass("NBTBase") });
-		ReflectionUtil.invokeMethod(methodAdd, attributeList, attribute);
-		
-		Method methodSet = ReflectionUtil.getMethod(ReflectionUtil.getNMSClass("NBTTagCompound"), "set", new Class<?>[] { String.class, ReflectionUtil.getNMSClass("NBTBase") });
-		ReflectionUtil.invokeMethod(methodSet, tag, "AttributeModifiers", attributeList);
-		
+		NBTReflection.writeAttribute(attribute, info.getAttributeName(), info.getAttributeValue());
+		NBTReflection.addToList(attributeList, attribute);
+		NBTReflection.compoundSet(tag, "AttributeModifiers", attributeList);
 		ReflectionUtil.setValue(fieldTag, nmsItem, tag);
 		
 		item = (ItemStack) NBTReflection.convertToBukkitItem(nmsItem);

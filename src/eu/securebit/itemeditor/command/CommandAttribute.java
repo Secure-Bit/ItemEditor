@@ -19,8 +19,7 @@ public class CommandAttribute extends ArgumentedCommand implements DefaultExecut
 		this.setPermission("ie.attribute");
 		this.setExecutor(this);
 		
-		// TODO 1.8 compatibility (NBTTagList remove() method)
-		if (Main.getMinecraftVersion() >= 19) {
+		if (Main.getMinecraftVersion() >= 18) {
 			this.enabled = true;
 			this.registerArgument("damage", new ArgumentAttributeDamage());
 			this.registerArgument("protection", new ArgumentAttributeProtection());
@@ -41,7 +40,7 @@ public class CommandAttribute extends ArgumentedCommand implements DefaultExecut
 			return true;
 		}
 		
-		Main.layout().message(sender, "The attribute command is only available in Minecraft 1.9 and later versions.");
+		Main.layout().message(sender, "The attribute command is only available in Minecraft 1.8 and later versions.");
 		
 		return true;
 	}
