@@ -21,8 +21,17 @@ public class CommandAttribute extends ArgumentedCommand implements DefaultExecut
 		
 		if (Main.getMinecraftVersion() >= 18) {
 			this.enabled = true;
+			
 			this.registerArgument("damage", new ArgumentAttributeDamage());
-			this.registerArgument("protection", new ArgumentAttributeProtection());
+			
+			if (Main.getMinecraftVersion() >= 19) {
+				this.registerArgument("protection", new ArgumentAttributeProtection());
+				this.registerArgument("knockbackresistance", new ArgumentAttributeKnockbackResistance());
+				this.registerArgument("speed", new ArgumentAttributeSpeed());
+				this.registerArgument("attackSpeed", new ArgumentAttributeAttackSpeed());
+				this.registerArgument("maxhealth", new ArgumentAttributeMaxHealth());
+			}
+			
 		} else {
 			this.enabled = false;
 		}
@@ -35,7 +44,15 @@ public class CommandAttribute extends ArgumentedCommand implements DefaultExecut
 			layout.begin();
 			layout.category("Attribute$-Command");
 			layout.line("/attribute damage <value>");
-			layout.line("/attribute protection <value>");
+			
+			if (Main.getMinecraftVersion() >= 19) {
+				layout.line("/attribute protection <value>");
+				layout.line("/attribute maxhealth <value>");
+				layout.line("/attribute speed <value>");
+				layout.line("/attribute knockbackresistance <value>");
+				layout.line("/attribute attackspeed <value>");
+			}
+			
 			layout.commit(sender);
 			return true;
 		}

@@ -87,9 +87,9 @@ public class NBTReflection {
 	}
 	
 	public static void writeAttribute(Object attribute, String attributeName, double value) {
-		ReflectionUtil.invokeMethod(methodTagCompoundSetInt, attribute, "UUIDMost", 1);
-		ReflectionUtil.invokeMethod(methodTagCompoundSetInt, attribute, "UUIDLeast", 1);
-		ReflectionUtil.invokeMethod(methodTagCompoundSetInt, attribute, "Operation", 0);
+		ReflectionUtil.invokeMethod(methodTagCompoundSetInt, attribute, "UUIDMost", 0x01);
+		ReflectionUtil.invokeMethod(methodTagCompoundSetInt, attribute, "UUIDLeast", 0x01);
+		ReflectionUtil.invokeMethod(methodTagCompoundSetInt, attribute, "Operation", 0x00);
 		ReflectionUtil.invokeMethod(methodTagCompoundSetDouble, attribute, "Amount", value);
 		ReflectionUtil.invokeMethod(methodTagCompoundSetString, attribute, "Name", "CustomAttribute"); // name doesn't care
 		ReflectionUtil.invokeMethod(methodTagCompoundSetString, attribute, "AttributeName", attributeName);

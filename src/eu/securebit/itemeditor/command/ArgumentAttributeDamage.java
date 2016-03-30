@@ -34,7 +34,7 @@ public class ArgumentAttributeDamage extends ArgumentAttributeSet {
 
 	@Override
 	public String getSyntax() {
-		return "/attribute damage <value>";
+		return "/attribute damage <value> (greater or equals 0)";
 	}
 
 }
