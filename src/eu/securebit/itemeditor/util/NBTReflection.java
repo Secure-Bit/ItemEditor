@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Map;
 
 import org.bukkit.inventory.ItemStack;
 
@@ -101,5 +102,18 @@ public class NBTReflection {
 	
 	public static void compoundSet(Object compound, String key, Object nbtBase) {
 		ReflectionUtil.invokeMethod(methodTagCompoundSet, compound, key, nbtBase);
+	}
+	
+	public static int countTags(ItemStack item) {
+		Object nmsItem = NBTReflection.convertToNMSItem(item);
+		Object compound = ReflectionUtil.createObject(ReflectionUtil.getDeclaredField(classItemStack, "tag"), nmsItem);
+		
+		if (compound == null) {
+			return 0;
+		}
+		
+		Field fieldMap = ReflectionUtil.getDeclaredField(classNBTTagCompound, "map");
+		Map<?, ?> map = (Map<?, ?>) ReflectionUtil.createObject(fieldMap, compound);
+		return map.size();
 	}
 }
