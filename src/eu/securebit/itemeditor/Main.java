@@ -6,12 +6,12 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import eu.securebit.itemeditor.command.CommandAddInfo;
+import eu.securebit.itemeditor.command.CommandShowInfo;
 import eu.securebit.itemeditor.command.CommandArmor;
 import eu.securebit.itemeditor.command.CommandAttribute;
 import eu.securebit.itemeditor.command.CommandBreakable;
 import eu.securebit.itemeditor.command.CommandLore;
-import eu.securebit.itemeditor.command.CommandRemoveInfo;
+import eu.securebit.itemeditor.command.CommandHideInfo;
 import eu.securebit.itemeditor.command.CommandRename;
 import eu.securebit.itemeditor.command.CommandSkull;
 import lib.securebit.itemeditor.InfoLayout;
@@ -91,8 +91,8 @@ public class Main extends JavaPlugin {
 		Main.layout.message(sender, "Creating commands...");
 		new CommandRename().create();
 		new CommandLore().create();
-		new CommandRemoveInfo().create();
-		new CommandAddInfo().create();
+		new CommandHideInfo().create();
+		new CommandShowInfo().create();
 		new CommandBreakable().create();
 		new CommandSkull().create();
 		new CommandArmor().create();

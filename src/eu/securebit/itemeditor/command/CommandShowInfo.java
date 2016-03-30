@@ -12,13 +12,13 @@ import eu.securebit.itemeditor.Main;
 import lib.securebit.itemeditor.commands.UnargumentedCommand;
 import lib.securebit.itemeditor.commands.settings.LayoutCommandSettings;
 
-public class CommandAddInfo extends UnargumentedCommand {
+public class CommandShowInfo extends UnargumentedCommand {
 
-	public CommandAddInfo() {
-		super("addinfo", new LayoutCommandSettings(Main.layout()), Main.instance());
+	public CommandShowInfo() {
+		super("showinfo", new LayoutCommandSettings(Main.layout()), Main.instance());
 		
 		this.setOnlyPlayers(true);
-		this.setAliases("ainfo");
+		this.setAliases("addinfo", "ainfo", "sinfo", "showflags");
 		this.setPermission("ie.addinfo");
 		this.setUsage("/addinfo");
 	}
@@ -37,8 +37,6 @@ public class CommandAddInfo extends UnargumentedCommand {
 		ItemMeta meta = item.getItemMeta();
 		meta.removeItemFlags(ItemFlag.values());
 		item.setItemMeta(meta);
-		
-		player.setItemInHand(item);
 		
 		Main.layout().message(player, "+ItemStack successfully modified!+");
 		
