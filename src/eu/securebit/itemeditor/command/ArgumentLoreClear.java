@@ -1,6 +1,5 @@
 package eu.securebit.itemeditor.command;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
@@ -39,7 +38,7 @@ public class ArgumentLoreClear extends Argument<Main> {
 	public boolean execute(CommandSender sender, Command cmd, String label, String[] args) {
 		Player player = (Player) sender;
 		
-		if (args.length == 1) {
+		if (args.length != 1) {
 			return false;
 		}
 		
@@ -50,17 +49,16 @@ public class ArgumentLoreClear extends Argument<Main> {
 		}
 		
 		ItemMeta meta = item.getItemMeta();
-		List<String> lore = meta.getLore();
-		
-		if (lore == null) {
-			lore = new ArrayList<>();
+		if (meta.hasLore()) {
+			List<String> lore = meta.getLore();
+			lore.clear();
+			meta.setLore(lore);
 		}
 		
-		lore.clear();
-		meta.setLore(lore);
 		item.setItemMeta(meta);
 				
-		Main.layout().message(player, "+The description has been cleared!+");
+		Main.layout().message(player, "+The description (lore) has been cleared!+");
+		
 		return true;
 	}
 
