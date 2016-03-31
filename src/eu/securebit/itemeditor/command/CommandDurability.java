@@ -1,4 +1,4 @@
-package eu.securebit.itemeditor.command.abstracts;
+package eu.securebit.itemeditor.command;
 
 import org.bukkit.Material;
 import org.bukkit.command.Command;

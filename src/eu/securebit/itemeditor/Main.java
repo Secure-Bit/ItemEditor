@@ -10,12 +10,12 @@ import eu.securebit.itemeditor.command.CommandShowInfo;
 import eu.securebit.itemeditor.command.CommandArmor;
 import eu.securebit.itemeditor.command.CommandAttribute;
 import eu.securebit.itemeditor.command.CommandBreakable;
+import eu.securebit.itemeditor.command.CommandDurability;
 import eu.securebit.itemeditor.command.CommandLore;
 import eu.securebit.itemeditor.command.CommandHideInfo;
 import eu.securebit.itemeditor.command.CommandItemInfo;
 import eu.securebit.itemeditor.command.CommandRename;
 import eu.securebit.itemeditor.command.CommandSkull;
-import eu.securebit.itemeditor.command.abstracts.CommandDurability;
 import lib.securebit.itemeditor.InfoLayout;
 
 public class Main extends JavaPlugin {
