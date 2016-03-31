@@ -15,6 +15,7 @@ import eu.securebit.itemeditor.command.CommandHideInfo;
 import eu.securebit.itemeditor.command.CommandItemInfo;
 import eu.securebit.itemeditor.command.CommandRename;
 import eu.securebit.itemeditor.command.CommandSkull;
+import eu.securebit.itemeditor.command.abstracts.CommandDurability;
 import lib.securebit.itemeditor.InfoLayout;
 
 public class Main extends JavaPlugin {
@@ -100,6 +101,7 @@ public class Main extends JavaPlugin {
 		new CommandArmor().create();
 		new CommandAttribute().create();
 		new CommandItemInfo().create();
+		new CommandDurability().create();
 		
 		Main.layout.message(sender, "Plugin started!");
 	}
