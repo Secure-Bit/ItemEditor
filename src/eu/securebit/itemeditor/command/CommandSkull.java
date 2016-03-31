@@ -19,6 +19,7 @@ public class CommandSkull extends UnargumentedCommand {
 		this.setUsage("/skull [player]");
 		this.setOnlyPlayers(true);
 		this.setPermission("ie.skull");
+		this.setDescription("Getting a skull by username.");
 	}
 
 	@SuppressWarnings("deprecation")

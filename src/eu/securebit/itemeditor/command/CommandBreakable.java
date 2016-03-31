@@ -20,6 +20,7 @@ public class CommandBreakable extends UnargumentedCommand {
 		this.setOnlyPlayers(true);
 		this.setPermission("ie.breakable");
 		this.setAliases("break");
+		this.setDescription("Makes items unbreakable / breakable.");
 	}
 
 	@SuppressWarnings("deprecation")

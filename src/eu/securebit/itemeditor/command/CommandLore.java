@@ -17,6 +17,7 @@ public class CommandLore extends ArgumentedCommand implements DefaultExecutor {
 		this.setAliases("lore", "desc", "description");
 		this.setPermission("ie.describe");
 		this.setExecutor(this);
+		this.setDescription("Modifies the lore of an item.");
 		this.registerArgument("addline", new ArgumentLoreAddline(Main.instance()));
 		this.registerArgument("rmline", new ArgumentLoreRmline(Main.instance()));
 		this.registerArgument("clear", new ArgumentLoreClear(Main.instance()));

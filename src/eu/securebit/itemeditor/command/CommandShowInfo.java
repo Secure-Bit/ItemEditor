@@ -21,6 +21,7 @@ public class CommandShowInfo extends UnargumentedCommand {
 		this.setAliases("addinfo", "ainfo", "sinfo", "showflags");
 		this.setPermission("ie.addinfo");
 		this.setUsage("/addinfo");
+		this.setDescription("Makes the item flags visible.");
 	}
 
 	@SuppressWarnings("deprecation")

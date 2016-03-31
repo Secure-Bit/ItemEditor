@@ -21,6 +21,7 @@ public class CommandItemInfo extends UnargumentedCommand {
 		this.setOnlyPlayers(true);
 		this.setPermission("ie.iteminfo");
 		this.setAliases("iinfo", "iteminformation", "itemi");
+		this.setDescription("Shows information about an item.");
 	}
 
 	@SuppressWarnings("deprecation")

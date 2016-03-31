@@ -21,6 +21,7 @@ public class CommandRename extends UnargumentedCommand {
 		this.setAliases("changename", "ren", "re");
 		this.setPermission("ie.rename");
 		this.setUsage("/rename <new display name>");
+		this.setDescription("Changes the display name of an item.");
 	}
 	
 	@SuppressWarnings("deprecation")

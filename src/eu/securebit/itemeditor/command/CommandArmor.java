@@ -17,6 +17,7 @@ public class CommandArmor extends ArgumentedCommand implements DefaultExecutor {
 		this.setAliases("armorcl", "armorcolor");
 		this.setExecutor(this);
 		this.setPermission("ie.armor");
+		this.setDescription("Changes the leather armor color.");
 		this.registerArgument("color", new ArgumentArmorColor());
 		this.registerArgument("removecolor", new ArgumentArmorRemoveColor());
 	}

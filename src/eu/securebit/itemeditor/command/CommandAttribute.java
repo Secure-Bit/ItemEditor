@@ -18,6 +18,7 @@ public class CommandAttribute extends ArgumentedCommand implements DefaultExecut
 		
 		this.setPermission("ie.attribute");
 		this.setExecutor(this);
+		this.setDescription("Alters generic attributes of items.");
 		
 		if (Main.getMinecraftVersion() >= 18) {
 			this.enabled = true;

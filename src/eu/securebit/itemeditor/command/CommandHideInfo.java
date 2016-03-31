@@ -21,6 +21,7 @@ public class CommandHideInfo extends UnargumentedCommand {
 		this.setAliases("removeinfo", "rminfo", "rinfo", "deleteinfo", "delinfo", "hinfo", "hideflags");
 		this.setPermission("ie.removeinfo");
 		this.setUsage("/removeinfo");
+		this.setDescription("Hides flags of an item.");
 	}
 
 	@SuppressWarnings("deprecation")

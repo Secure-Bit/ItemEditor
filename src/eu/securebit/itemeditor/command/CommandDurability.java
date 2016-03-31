@@ -19,6 +19,7 @@ public class CommandDurability extends UnargumentedCommand {
 		this.setOnlyPlayers(true);
 		this.setPermission("ie.durability");
 		this.setAliases("setdurability, changedurability, modifydurability");
+		this.setDescription("Sets / shows the durability of an item.");
 	}
 
 	@SuppressWarnings("deprecation")
