@@ -8,6 +8,7 @@ import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomArgument;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentArmorRemoveColor extends CustomArgument {
@@ -28,7 +29,7 @@ public class ArgumentArmorRemoveColor extends CustomArgument {
 		ItemStack item = player.getInventory().getItemInHand();
 		
 		if (item == null || !Main.isLeatherArmor(item)) {
-			Main.layout().message(player, "-You have to hold leather armor in your hand.-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_NO_LEATHER_ARMOR_IN_HAND));
 			return true;
 		}
 		
@@ -36,7 +37,7 @@ public class ArgumentArmorRemoveColor extends CustomArgument {
 		meta.setColor(null);
 		item.setItemMeta(meta);
 		
-		Main.layout().message(player, "+Color successfully removed!+");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_ARMOR_COLOR_REMOVED));
 		
 		return true;
 	}

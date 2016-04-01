@@ -11,6 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomArgument;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentLoreClear extends CustomArgument {
@@ -36,7 +37,7 @@ public class ArgumentLoreClear extends CustomArgument {
 		ItemStack item = player.getItemInHand();
 		
 		if (item == null || item.getType() == Material.AIR) {
-			Main.layout().message(player, "-You have to hold an item in your hand.-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_NO_ITEM_IN_HAND));
 		}
 		
 		ItemMeta meta = item.getItemMeta();
@@ -48,7 +49,7 @@ public class ArgumentLoreClear extends CustomArgument {
 		
 		item.setItemMeta(meta);
 				
-		Main.layout().message(player, "+The description (lore) has been cleared!+");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_LORE_CLEARED));
 		
 		return true;
 	}

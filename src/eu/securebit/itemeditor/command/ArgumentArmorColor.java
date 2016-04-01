@@ -11,6 +11,7 @@ import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomArgument;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentArmorColor extends CustomArgument {
@@ -32,7 +33,7 @@ public class ArgumentArmorColor extends CustomArgument {
 		Color color = null;
 		
 		if (item == null || !Main.isLeatherArmor(item)) {
-			Main.layout().message(player, "-You have to hold leather armor in your hand.-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_NO_LEATHER_ARMOR_IN_HAND));
 			return true;
 		}
 		
@@ -55,7 +56,7 @@ public class ArgumentArmorColor extends CustomArgument {
 				}
 				
 			} catch (Exception exception) {
-				Main.layout().message(player, "-Cannot resolve the color from your input.-");
+				Main.layout().message(player, Strings.get(Strings.ERROR_RESOLVE_COLOR, args[1]));
 				return true;
 			}
 		}
@@ -72,13 +73,13 @@ public class ArgumentArmorColor extends CustomArgument {
 				
 				color = Color.fromRGB(red, green, blue);
 			} catch (NumberFormatException exception) {
-				Main.layout().message(player, "-Specify 3 integer values (red, green, blue) between 0 and 255.-");
+				Main.layout().message(player, Strings.get(Strings.ERROR_SPECIFY_THREE_INTEGERS_RGB));
 				return true;
 			}
 		}
 		
 		if (color == null) {
-			Main.layout().message(player, "-No color provided.-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_NO_COLOR_PROVIDED));
 			return true;
 		}
 		
@@ -89,7 +90,7 @@ public class ArgumentArmorColor extends CustomArgument {
 		int red = color.getRed();
 		int blue = color.getBlue();
 		int green = color.getGreen();
-		Main.layout().message(player, "+Success! Color was set to RGB(" + red + ", " + green + ", " + blue + ").+");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_ARMOR_COLOR_SET, red, green, blue));
 		
 		return true;
 	}

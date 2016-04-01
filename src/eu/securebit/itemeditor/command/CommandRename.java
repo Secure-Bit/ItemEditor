@@ -9,6 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
+import eu.securebit.itemeditor.config.Strings;
 import net.md_5.bungee.api.ChatColor;
 
 public class CommandRename extends CustomUnargumentedCommand {
@@ -30,7 +31,7 @@ public class CommandRename extends CustomUnargumentedCommand {
 		ItemStack item = player.getItemInHand();
 		
 		if (item == null || item.getType() == Material.AIR) {
-			Main.layout().message(player, "-You have to hold an item in your hand!-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_NO_ITEM_IN_HAND));
 			return true;
 		}
 		

@@ -6,6 +6,7 @@ import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.ArgumentAttributeSet;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentAttributeDamage extends ArgumentAttributeSet {
@@ -25,7 +26,7 @@ public class ArgumentAttributeDamage extends ArgumentAttributeSet {
 			return null;
 		}
 		
-		return "Attack damage is only applicable on tools and weapons.";
+		return Strings.get(Strings.ERROR_ATTR_DAMAGE_ONLY_TOOLS_AND_WEAPONS);
 	}
 
 	@Override

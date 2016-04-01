@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
+import eu.securebit.itemeditor.config.Strings;
 import eu.securebit.itemeditor.util.NBTReflection;
 import lib.securebit.itemeditor.ReflectionUtil;
 import lib.securebit.itemeditor.commands.BasicCommand;
@@ -25,7 +26,7 @@ public abstract class ArgumentAttributeSet extends CustomArgument {
 		Player player = (Player) sender;
 		ItemStack item = player.getItemInHand();
 		if (item == null || item.getType() == Material.AIR) {
-			Main.layout().message(player, "-You have to hold an item in your hand.-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_NO_ITEM_IN_HAND));
 			return true;
 		}
 		
@@ -41,7 +42,7 @@ public abstract class ArgumentAttributeSet extends CustomArgument {
 		
 		AttributeInfo info = this.getAttributeInfo(player, args);
 		if (info == null) {
-			Main.layout().message(player, "-No or malformed attribute information provided.-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_NO_ATTRIBUTE_INFORMATION_PROVIDED));
 			return true;
 		}		
 		
@@ -64,8 +65,7 @@ public abstract class ArgumentAttributeSet extends CustomArgument {
 		
 		player.setItemInHand(item);
 		
-		String msg = "+Attribute '" + info.getLabel() + "' successfully set to " + info.getAttributeValue() + ".+";
-		Main.layout().message(player, msg);
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_ATTRIBUTE_SET, info.getLabel(), info.getAttributeValue()));
 		
 		return true;
 	}

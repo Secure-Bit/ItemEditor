@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
+import eu.securebit.itemeditor.config.Strings;
 import eu.securebit.itemeditor.util.NBTReflection;
 import lib.securebit.itemeditor.InfoLayout;
 
@@ -41,7 +42,7 @@ public class CommandItemInfo extends CustomUnargumentedCommand {
 		} else {
 			item = player.getItemInHand();
 			if (item == null || item.getType() == Material.AIR) {
-				Main.layout().message(player, "-You have to old a valid item in your hand.-");
+				Main.layout().message(player, Strings.get(Strings.ERROR_NO_ITEM_IN_HAND));
 				return true;
 			}
 		}

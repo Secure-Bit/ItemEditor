@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomArgumentCommand;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.InfoLayout;
 import lib.securebit.itemeditor.commands.Argument;
 import lib.securebit.itemeditor.commands.DefaultExecutor;
@@ -65,7 +66,7 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 			return true;
 		}
 		
-		Main.layout().message(sender, "The attribute command is only available in Minecraft 1.8 and later versions.");
+		Main.layout().message(sender, Strings.get(Strings.ERROR_COMMAND_ATTRIBUTE_NOT_AVAILABLE));
 		
 		return true;
 	}
@@ -94,7 +95,7 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 
 		@Override
 		public boolean execute(CommandSender sender, Command cmd, String label, String[] args) {
-			Main.layout().message(sender, "-This argument is unavailable in Minecraft 1.8 and earlier versions.-");
+			Main.layout().message(sender, Strings.get(Strings.ERROR_COMMAND_ATTRIBUTE_ARGUMENT_NOT_AVAILABLE));
 			return true;
 		}
 		

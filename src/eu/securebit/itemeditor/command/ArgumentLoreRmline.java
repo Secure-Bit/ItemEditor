@@ -12,6 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomArgument;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentLoreRmline extends CustomArgument {
@@ -33,7 +34,7 @@ public class ArgumentLoreRmline extends CustomArgument {
 		ItemStack item = player.getItemInHand();
 		
 		if (item == null || item.getType() == Material.AIR) {
-			Main.layout().message(player, "-You have to hold an item in your hand!-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_NO_ITEM_IN_HAND));
 		}
 		
 		ItemMeta meta = item.getItemMeta();
@@ -44,7 +45,7 @@ public class ArgumentLoreRmline extends CustomArgument {
 		}
 		
 		if (lore.isEmpty()) {
-			Main.layout().message(sender, "-The item does not have a lore!-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_ITEM_NO_LORE));
 		}
 		
 		int index;
@@ -54,19 +55,17 @@ public class ArgumentLoreRmline extends CustomArgument {
 		} else {
 			try {
 				index = Integer.parseInt(args[1]) - 1;
+				if (index < 0) {
+					throw new NumberFormatException();
+				}
 			} catch (NumberFormatException ex) {
-				Main.layout().message(player, "-The parameter 'index' has to be a valid number!-");
+				Main.layout().message(player, Strings.get(Strings.ERROR_PARAMETER_INDEX_INVALID));
 				return true;
 			}
 		}
 		
-		if (index < 0) {
-			Main.layout().message(player, "-The line has to be greater than 0!-");
-			return true;
-		}
-		
 		if (index >= lore.size()) {
-			Main.layout().message(sender, "-The line- *" + Integer.toString(index + 1) + "* -does not exist!-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_LORE_LINE_NOT_EXISTING, index + 1));
 			return true;
 		}
 		
@@ -74,7 +73,7 @@ public class ArgumentLoreRmline extends CustomArgument {
 		meta.setLore(lore);
 		item.setItemMeta(meta);
 				
-		Main.layout().message(player, "+The line has been removed!+");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_LORE_LINE_REMOVED));
 		return true;
 	}
 

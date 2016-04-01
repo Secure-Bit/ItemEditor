@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomArgument;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentLoreAddline extends CustomArgument {
@@ -38,7 +39,7 @@ public class ArgumentLoreAddline extends CustomArgument {
 		ItemStack item = player.getItemInHand();
 		
 		if (item == null || item.getType() == Material.AIR) {
-			Main.layout().message(player, "-You have to hold an item in your hand.-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_NO_ITEM_IN_HAND));
 		}
 		
 		ItemMeta meta = item.getItemMeta();
@@ -52,7 +53,7 @@ public class ArgumentLoreAddline extends CustomArgument {
 		meta.setLore(lore);
 		item.setItemMeta(meta);
 				
-		Main.layout().message(player, "+The line has been added!+");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_LORE_LINE_ADDED));
 		return true;
 	}
 

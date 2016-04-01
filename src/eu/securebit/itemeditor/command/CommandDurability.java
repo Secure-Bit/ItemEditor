@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
+import eu.securebit.itemeditor.config.Strings;
 
 public class CommandDurability extends CustomUnargumentedCommand {
 
@@ -32,7 +33,7 @@ public class CommandDurability extends CustomUnargumentedCommand {
 		}
 		
 		if (item == null || item.getType() == Material.AIR) {
-			Main.layout().message(player, "-You have to hold an item in your hand.-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_NO_ITEM_IN_HAND));
 			return true;
 		}
 		

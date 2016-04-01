@@ -5,6 +5,7 @@ import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.ArgumentAttributeSet;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentAttributeProtection extends ArgumentAttributeSet {
@@ -40,7 +41,7 @@ public class ArgumentAttributeProtection extends ArgumentAttributeSet {
 				return null;
 				
 			default:
-				return "Protection is only applicable on armor.";
+				return Strings.get(Strings.ERROR_ATTR_PROTECTION_ONLY_ARMOR);
 		}
 	}
 
