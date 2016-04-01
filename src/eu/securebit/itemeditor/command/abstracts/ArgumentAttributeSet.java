@@ -35,7 +35,7 @@ public abstract class ArgumentAttributeSet extends Argument<Main> {
 		Player player = (Player) sender;
 		ItemStack item = player.getItemInHand();
 		if (item == null || item.getType() == Material.AIR) {
-			Main.layout().message(player, "-You have to hold an item in your hands.-");
+			Main.layout().message(player, "-You have to hold an item in your hand.-");
 			return true;
 		}
 		

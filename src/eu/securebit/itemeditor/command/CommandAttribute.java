@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 
 import eu.securebit.itemeditor.Main;
 import lib.securebit.itemeditor.InfoLayout;
+import lib.securebit.itemeditor.commands.Argument;
 import lib.securebit.itemeditor.commands.ArgumentedCommand;
 import lib.securebit.itemeditor.commands.DefaultExecutor;
 import lib.securebit.itemeditor.commands.settings.LayoutCommandSettings;
@@ -29,8 +30,15 @@ public class CommandAttribute extends ArgumentedCommand implements DefaultExecut
 				this.registerArgument("protection", new ArgumentAttributeProtection());
 				this.registerArgument("knockbackresistance", new ArgumentAttributeKnockbackResistance());
 				this.registerArgument("speed", new ArgumentAttributeSpeed());
-				this.registerArgument("attackSpeed", new ArgumentAttributeAttackSpeed());
+				this.registerArgument("attackspeed", new ArgumentAttributeAttackSpeed());
 				this.registerArgument("maxhealth", new ArgumentAttributeMaxHealth());
+			} else {
+				ArgumentUnavailable argument = new ArgumentUnavailable();
+				this.registerArgument("protection", argument);
+				this.registerArgument("knockbackresistance", argument);
+				this.registerArgument("speed", argument);
+				this.registerArgument("attackspeed", argument);
+				this.registerArgument("maxhealth", argument);
 			}
 			
 		} else {
@@ -63,4 +71,33 @@ public class CommandAttribute extends ArgumentedCommand implements DefaultExecut
 		return true;
 	}
 
+	
+	private class ArgumentUnavailable extends Argument<Main> {
+
+		public ArgumentUnavailable() {
+			super(Main.instance());
+		}
+
+		@Override
+		public String getSyntax() {
+			return null;
+		}
+
+		@Override
+		public String getPermission() {
+			return null;
+		}
+
+		@Override
+		public boolean isOnlyForPlayer() {
+			return false;
+		}
+
+		@Override
+		public boolean execute(CommandSender sender, Command cmd, String label, String[] args) {
+			Main.layout().message(sender, "-This argument is unavailable in Minecraft 1.8 and earlier versions.-");
+			return true;
+		}
+		
+	}
 }
