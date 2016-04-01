@@ -6,17 +6,19 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import eu.securebit.itemeditor.command.CommandShowInfo;
 import eu.securebit.itemeditor.command.CommandArmor;
 import eu.securebit.itemeditor.command.CommandAttribute;
 import eu.securebit.itemeditor.command.CommandBreakable;
 import eu.securebit.itemeditor.command.CommandDurability;
-import eu.securebit.itemeditor.command.CommandLore;
 import eu.securebit.itemeditor.command.CommandHideInfo;
 import eu.securebit.itemeditor.command.CommandItemInfo;
+import eu.securebit.itemeditor.command.CommandLore;
 import eu.securebit.itemeditor.command.CommandRename;
+import eu.securebit.itemeditor.command.CommandShowInfo;
 import eu.securebit.itemeditor.command.CommandSkull;
 import eu.securebit.itemeditor.config.ConfigValue;
+import eu.securebit.itemeditor.config.Strings;
+import eu.securebit.itemeditor.listener.ListenerGermanLanguageJoin;
 import lib.securebit.itemeditor.InfoLayout;
 
 public class Main extends JavaPlugin {
@@ -94,13 +96,22 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		ConsoleCommandSender sender = Bukkit.getConsoleSender();
 		
-		Main.layout.message(sender, "Initializing configuration...");
 		this.saveDefaultConfig();
 		if (this.getConfig().getBoolean(ConfigValue.NO_CONFLICT)) {
 			this.commandPrefix = this.getConfig().getString(ConfigValue.NO_CONFLICT_PREFIX);
 		}
 		
-		Main.layout.message(sender, "Creating commands...");
+		String language = this.getConfig().getString("language");
+		if (language.equalsIgnoreCase("de") || language.equalsIgnoreCase("german")) {
+			language = "de";
+			Bukkit.getPluginManager().registerEvents(new ListenerGermanLanguageJoin(), this);
+		} else {
+			language = "en";
+		}
+		
+		Strings.init(language);
+				
+		Main.layout.message(sender, Strings.get(Strings.CONSOLE_INIT_COMMANDS));
 		new CommandRename().create();
 		new CommandLore().create();
 		new CommandHideInfo().create();
@@ -112,13 +123,13 @@ public class Main extends JavaPlugin {
 		new CommandItemInfo().create();
 		new CommandDurability().create();
 		
-		Main.layout.message(sender, "Plugin started!");
+		Main.layout.message(sender, Strings.get(Strings.CONSOLE_PLUGIN_ENABLED));
 	}
 	
 	@Override
 	public void onDisable() {
 		ConsoleCommandSender sender = Bukkit.getConsoleSender();
-		Main.layout.message(sender, "Plugin stopped!");		
+		Main.layout.message(sender, Strings.get(Strings.CONSOLE_PLUGIN_DISABLED));		
 	}
 	
 	public String getCommandPrefix() {

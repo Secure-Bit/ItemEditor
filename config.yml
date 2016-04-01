@@ -2,6 +2,10 @@
 ######## ItemEditor Configuration File ########
 ###############################################
 
+
+# Select either 'en' (english) or 'de' (german)
+language: 'en'
+
 # Avoids collisions with commands of other plugins
 no-conflict: false
 
