@@ -10,27 +10,18 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 import eu.securebit.itemeditor.Main;
-import lib.securebit.itemeditor.commands.Argument;
+import eu.securebit.itemeditor.command.abstracts.CustomArgument;
+import lib.securebit.itemeditor.commands.BasicCommand;
 
-public class ArgumentArmorColor extends Argument<Main> {
+public class ArgumentArmorColor extends CustomArgument {
 
-	public ArgumentArmorColor() {
-		super(Main.instance());
+	public ArgumentArmorColor(BasicCommand command) {
+		super(command);
 	}
 
 	@Override
 	public String getSyntax() {
-		return "/armor color {<color> | <red> <green> <blue>}";
-	}
-
-	@Override
-	public String getPermission() {
-		return null;
-	}
-
-	@Override
-	public boolean isOnlyForPlayer() {
-		return true;
+		return "/" + this.getCommand().getName() + " color {<color> | <red> <green> <blue>}";
 	}
 
 	@SuppressWarnings("deprecation")

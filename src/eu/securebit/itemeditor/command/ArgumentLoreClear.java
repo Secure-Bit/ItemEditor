@@ -10,29 +10,20 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
-import lib.securebit.itemeditor.commands.Argument;
+import eu.securebit.itemeditor.command.abstracts.CustomArgument;
+import lib.securebit.itemeditor.commands.BasicCommand;
 
-public class ArgumentLoreClear extends Argument<Main> {
+public class ArgumentLoreClear extends CustomArgument {
 
-	public ArgumentLoreClear(Main plugin) {
-		super(plugin);
+	public ArgumentLoreClear(BasicCommand command) {
+		super(command);
 	}
 
 	@Override
 	public String getSyntax() {
-		return "/describe clear";
+		return "/" + this.getCommand().getName() + " clear";
 	}
-
-	@Override
-	public String getPermission() {
-		return null;
-	}
-
-	@Override
-	public boolean isOnlyForPlayer() {
-		return true;
-	}
-
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean execute(CommandSender sender, Command cmd, String label, String[] args) {

@@ -7,15 +7,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
-import lib.securebit.itemeditor.commands.UnargumentedCommand;
-import lib.securebit.itemeditor.commands.settings.LayoutCommandSettings;
+import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
 
-public class CommandDurability extends UnargumentedCommand {
+public class CommandDurability extends CustomUnargumentedCommand {
 
 	public CommandDurability() {
-		super("durability", new LayoutCommandSettings(Main.layout()), Main.instance());
+		super("durability", Main.instance().getCommandPrefix());
 		
-		this.setUsage("/durability [value]");
+		this.setUsage("/" + this.getName() + " [value]");
 		this.setOnlyPlayers(true);
 		this.setPermission("ie.durability");
 		this.setAliases("setdurability, changedurability, modifydurability");

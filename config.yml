@@ -1,0 +1,9 @@
+###############################################
+######## ItemEditor Configuration File ########
+###############################################
+
+# Avoids collisions with commands of other plugins
+no-conflict: false
+
+# If no-conflict is enabled, this prefix is prepended to every command of ItemEditor
+no-conflict-prefix: 'ie'

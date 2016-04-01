@@ -8,15 +8,14 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
-import lib.securebit.itemeditor.commands.UnargumentedCommand;
-import lib.securebit.itemeditor.commands.settings.LayoutCommandSettings;
+import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
 
-public class CommandBreakable extends UnargumentedCommand {
+public class CommandBreakable extends CustomUnargumentedCommand {
 
 	public CommandBreakable() {
-		super("breakable", new LayoutCommandSettings(Main.layout()), Main.instance());
+		super("breakable", Main.instance().getCommandPrefix());
 		
-		this.setUsage("/breakable [true|false]");
+		this.setUsage("/" + this.getName() + " [true|false]");
 		this.setOnlyPlayers(true);
 		this.setPermission("ie.breakable");
 		this.setAliases("break");

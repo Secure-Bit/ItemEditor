@@ -11,27 +11,18 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
-import lib.securebit.itemeditor.commands.Argument;
+import eu.securebit.itemeditor.command.abstracts.CustomArgument;
+import lib.securebit.itemeditor.commands.BasicCommand;
 
-public class ArgumentLoreRmline extends Argument<Main> {
+public class ArgumentLoreRmline extends CustomArgument {
 
-	public ArgumentLoreRmline(Main main) {
-		super(main);
+	public ArgumentLoreRmline(BasicCommand command) {
+		super(command);
 	}
 
 	@Override
 	public String getSyntax() {
-		return "/describe rmline [line]";
-	}
-
-	@Override
-	public String getPermission() {
-		return null;
-	}
-
-	@Override
-	public boolean isOnlyForPlayer() {
-		return true;
+		return "/" + this.getCommand().getName() + " rmline [line]";
 	}
 
 	@SuppressWarnings("deprecation")
@@ -75,7 +66,7 @@ public class ArgumentLoreRmline extends Argument<Main> {
 		}
 		
 		if (index >= lore.size()) {
-			Main.layout().message(sender, "-The line- *" + Integer.toString(index) + "* -does not exist!-");
+			Main.layout().message(sender, "-The line- *" + Integer.toString(index + 1) + "* -does not exist!-");
 			return true;
 		}
 		

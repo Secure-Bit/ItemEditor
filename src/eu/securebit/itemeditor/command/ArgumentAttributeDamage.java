@@ -6,8 +6,13 @@ import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.ArgumentAttributeSet;
+import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentAttributeDamage extends ArgumentAttributeSet {
+
+	public ArgumentAttributeDamage(BasicCommand command) {
+		super(command);
+	}
 
 	@Override
 	public String validateItem(ItemStack item) {
@@ -34,7 +39,7 @@ public class ArgumentAttributeDamage extends ArgumentAttributeSet {
 
 	@Override
 	public String getSyntax() {
-		return "/attribute damage <value> (greater or equals 0)";
+		return "/" + this.getCommand().getName() + " damage <value> (greater or equals 0)";
 	}
 
 }

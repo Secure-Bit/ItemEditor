@@ -7,17 +7,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
+import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
 import eu.securebit.itemeditor.util.NBTReflection;
 import lib.securebit.itemeditor.InfoLayout;
-import lib.securebit.itemeditor.commands.UnargumentedCommand;
-import lib.securebit.itemeditor.commands.settings.LayoutCommandSettings;
 
-public class CommandItemInfo extends UnargumentedCommand {
+public class CommandItemInfo extends CustomUnargumentedCommand {
 
 	public CommandItemInfo() {
-		super("iteminfo", new LayoutCommandSettings(Main.layout()), Main.instance());
+		super("iteminfo", Main.instance().getCommandPrefix());
 		
-		this.setUsage("/iteminfo [name]");
+		this.setUsage("/" + this.getName() + " [name]");
 		this.setOnlyPlayers(true);
 		this.setPermission("ie.iteminfo");
 		this.setAliases("iinfo", "iteminformation", "itemi");

@@ -4,18 +4,17 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import eu.securebit.itemeditor.Main;
+import eu.securebit.itemeditor.command.abstracts.CustomArgumentCommand;
 import lib.securebit.itemeditor.InfoLayout;
 import lib.securebit.itemeditor.commands.Argument;
-import lib.securebit.itemeditor.commands.ArgumentedCommand;
 import lib.securebit.itemeditor.commands.DefaultExecutor;
-import lib.securebit.itemeditor.commands.settings.LayoutCommandSettings;
 
-public class CommandAttribute extends ArgumentedCommand implements DefaultExecutor {
+public class CommandAttribute extends CustomArgumentCommand implements DefaultExecutor {
 
 	private final boolean enabled;
 	
 	public CommandAttribute() {
-		super("attribute", new LayoutCommandSettings(Main.layout()), Main.instance());
+		super("attribute", Main.instance().getCommandPrefix());
 		
 		this.setPermission("ie.attribute");
 		this.setExecutor(this);
@@ -24,14 +23,14 @@ public class CommandAttribute extends ArgumentedCommand implements DefaultExecut
 		if (Main.getMinecraftVersion() >= 18) {
 			this.enabled = true;
 			
-			this.registerArgument("damage", new ArgumentAttributeDamage());
+			this.registerArgument("damage", new ArgumentAttributeDamage(this));
 			
 			if (Main.getMinecraftVersion() >= 19) {
-				this.registerArgument("protection", new ArgumentAttributeProtection());
-				this.registerArgument("knockbackresistance", new ArgumentAttributeKnockbackResistance());
-				this.registerArgument("speed", new ArgumentAttributeSpeed());
-				this.registerArgument("attackspeed", new ArgumentAttributeAttackSpeed());
-				this.registerArgument("maxhealth", new ArgumentAttributeMaxHealth());
+				this.registerArgument("protection", new ArgumentAttributeProtection(this));
+				this.registerArgument("knockbackresistance", new ArgumentAttributeKnockbackResistance(this));
+				this.registerArgument("speed", new ArgumentAttributeSpeed(this));
+				this.registerArgument("attackspeed", new ArgumentAttributeAttackSpeed(this));
+				this.registerArgument("maxhealth", new ArgumentAttributeMaxHealth(this));
 			} else {
 				ArgumentUnavailable argument = new ArgumentUnavailable();
 				this.registerArgument("protection", argument);
@@ -52,14 +51,14 @@ public class CommandAttribute extends ArgumentedCommand implements DefaultExecut
 			InfoLayout layout = Main.layout().clone();
 			layout.begin();
 			layout.category("Attribute$-Command");
-			layout.line("/attribute damage <value>");
+			layout.line("/" + this.getName() + " damage <value>");
 			
 			if (Main.getMinecraftVersion() >= 19) {
-				layout.line("/attribute protection <value>");
-				layout.line("/attribute maxhealth <value>");
-				layout.line("/attribute speed <value>");
-				layout.line("/attribute knockbackresistance <value>");
-				layout.line("/attribute attackspeed <value>");
+				layout.line("/" + this.getName() + " protection <value>");
+				layout.line("/" + this.getName() + " maxhealth <value>");
+				layout.line("/" + this.getName() + " speed <value>");
+				layout.line("/" + this.getName() + " knockbackresistance <value>");
+				layout.line("/" + this.getName() + " attackspeed <value>");
 			}
 			
 			layout.commit(sender);

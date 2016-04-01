@@ -8,15 +8,14 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import eu.securebit.itemeditor.Main;
-import lib.securebit.itemeditor.commands.UnargumentedCommand;
-import lib.securebit.itemeditor.commands.settings.LayoutCommandSettings;
+import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
 
-public class CommandSkull extends UnargumentedCommand {
+public class CommandSkull extends CustomUnargumentedCommand {
 
 	public CommandSkull() {
-		super("skull", new LayoutCommandSettings(Main.layout()), Main.instance());
+		super("skull", Main.instance().getCommandPrefix());
 		
-		this.setUsage("/skull [player]");
+		this.setUsage("/" + this.getName() + " [player]");
 		this.setOnlyPlayers(true);
 		this.setPermission("ie.skull");
 		this.setDescription("Getting a skull by username.");

@@ -9,18 +9,17 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
-import lib.securebit.itemeditor.commands.UnargumentedCommand;
-import lib.securebit.itemeditor.commands.settings.LayoutCommandSettings;
+import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
 
-public class CommandShowInfo extends UnargumentedCommand {
+public class CommandShowInfo extends CustomUnargumentedCommand {
 
 	public CommandShowInfo() {
-		super("showinfo", new LayoutCommandSettings(Main.layout()), Main.instance());
+		super("showinfo", Main.instance().getCommandPrefix());
 		
 		this.setOnlyPlayers(true);
 		this.setAliases("addinfo", "ainfo", "sinfo", "showflags");
 		this.setPermission("ie.addinfo");
-		this.setUsage("/addinfo");
+		this.setUsage("/" + this.getName());
 		this.setDescription("Makes the item flags visible.");
 	}
 

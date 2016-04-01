@@ -16,6 +16,7 @@ import eu.securebit.itemeditor.command.CommandHideInfo;
 import eu.securebit.itemeditor.command.CommandItemInfo;
 import eu.securebit.itemeditor.command.CommandRename;
 import eu.securebit.itemeditor.command.CommandSkull;
+import eu.securebit.itemeditor.config.ConfigValue;
 import lib.securebit.itemeditor.InfoLayout;
 
 public class Main extends JavaPlugin {
@@ -80,6 +81,8 @@ public class Main extends JavaPlugin {
 		}
 	}
 	
+	private String commandPrefix;
+	
 	@Override
 	public void onLoad() {
 		Main.instance = this;
@@ -90,8 +93,14 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		ConsoleCommandSender sender = Bukkit.getConsoleSender();
-		Main.layout.message(sender, "Creating commands...");
 		
+		Main.layout.message(sender, "Initializing configuration...");
+		this.saveDefaultConfig();
+		if (this.getConfig().getBoolean(ConfigValue.NO_CONFLICT)) {
+			this.commandPrefix = this.getConfig().getString(ConfigValue.NO_CONFLICT_PREFIX);
+		}
+		
+		Main.layout.message(sender, "Creating commands...");
 		new CommandRename().create();
 		new CommandLore().create();
 		new CommandHideInfo().create();
@@ -112,4 +121,7 @@ public class Main extends JavaPlugin {
 		Main.layout.message(sender, "Plugin stopped!");		
 	}
 	
+	public String getCommandPrefix() {
+		return this.commandPrefix;
+	}
 }

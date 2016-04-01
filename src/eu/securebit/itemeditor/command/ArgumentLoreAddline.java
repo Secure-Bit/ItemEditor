@@ -12,27 +12,18 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
-import lib.securebit.itemeditor.commands.Argument;
+import eu.securebit.itemeditor.command.abstracts.CustomArgument;
+import lib.securebit.itemeditor.commands.BasicCommand;
 
-public class ArgumentLoreAddline extends Argument<Main> {
-
-	public ArgumentLoreAddline(Main plugin) {
-		super(plugin);
+public class ArgumentLoreAddline extends CustomArgument {
+	
+	public ArgumentLoreAddline(BasicCommand command) {
+		super(command);
 	}
 
 	@Override
 	public String getSyntax() {
-		return "/describe addline <line>";
-	}
-
-	@Override
-	public String getPermission() {
-		return null;
-	}
-
-	@Override
-	public boolean isOnlyForPlayer() {
-		return true;
+		return "/" + this.getCommand().getName() + " addline <line>";
 	}
 
 	@SuppressWarnings("deprecation")

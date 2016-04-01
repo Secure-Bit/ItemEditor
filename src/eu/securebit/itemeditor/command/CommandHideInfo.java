@@ -9,18 +9,17 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
-import lib.securebit.itemeditor.commands.UnargumentedCommand;
-import lib.securebit.itemeditor.commands.settings.LayoutCommandSettings;
+import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
 
-public class CommandHideInfo extends UnargumentedCommand {
+public class CommandHideInfo extends CustomUnargumentedCommand {
 
 	public CommandHideInfo() {
-		super("hideinfo", new LayoutCommandSettings(Main.layout()), Main.instance());
+		super("hideinfo", Main.instance().getCommandPrefix());
 		
 		this.setOnlyPlayers(true);
 		this.setAliases("removeinfo", "rminfo", "rinfo", "deleteinfo", "delinfo", "hinfo", "hideflags");
 		this.setPermission("ie.removeinfo");
-		this.setUsage("/removeinfo");
+		this.setUsage("/" + this.getName());
 		this.setDescription("Hides flags of an item.");
 	}
 

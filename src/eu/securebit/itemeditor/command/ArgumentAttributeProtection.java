@@ -5,8 +5,13 @@ import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.ArgumentAttributeSet;
+import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentAttributeProtection extends ArgumentAttributeSet {
+
+	public ArgumentAttributeProtection(BasicCommand command) {
+		super(command);
+	}
 
 	@Override
 	public String validateItem(ItemStack item) {
@@ -50,7 +55,7 @@ public class ArgumentAttributeProtection extends ArgumentAttributeSet {
 
 	@Override
 	public String getSyntax() {
-		return "/attribute protection <value> (between 0 and 30)";
+		return "/" + this.getCommand().getName() + " protection <value> (between 0 and 30)";
 	}
 
 }

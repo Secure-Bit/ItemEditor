@@ -4,8 +4,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.command.abstracts.ArgumentAttributeSet;
+import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentAttributeSpeed extends ArgumentAttributeSet {
+
+	public ArgumentAttributeSpeed(BasicCommand command) {
+		super(command);
+	}
 
 	@Override
 	public String validateItem(ItemStack item) {
@@ -23,7 +28,7 @@ public class ArgumentAttributeSpeed extends ArgumentAttributeSet {
 
 	@Override
 	public String getSyntax() {
-		return "/attribute speed <value> (greater or equals 0, default 0.7)";
+		return "/" + this.getCommand().getName() + " speed <value> (greater or equals 0, default 0.7)";
 	}
 
 }

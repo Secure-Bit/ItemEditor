@@ -11,22 +11,12 @@ import org.bukkit.inventory.ItemStack;
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.util.NBTReflection;
 import lib.securebit.itemeditor.ReflectionUtil;
-import lib.securebit.itemeditor.commands.Argument;
+import lib.securebit.itemeditor.commands.BasicCommand;
 
-public abstract class ArgumentAttributeSet extends Argument<Main> {
-
-	public ArgumentAttributeSet() {
-		super(Main.instance());
-	}
+public abstract class ArgumentAttributeSet extends CustomArgument {
 	
-	@Override
-	public String getPermission() {
-		return null;
-	}
-
-	@Override
-	public boolean isOnlyForPlayer() {
-		return true;
+	public ArgumentAttributeSet(BasicCommand command) {
+		super(command);
 	}
 
 	@SuppressWarnings("deprecation")

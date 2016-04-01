@@ -5,8 +5,13 @@ import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.ArgumentAttributeSet;
+import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentAttributeMaxHealth extends ArgumentAttributeSet {
+
+	public ArgumentAttributeMaxHealth(BasicCommand command) {
+		super(command);
+	}
 
 	@Override
 	public String validateItem(ItemStack item) {
@@ -24,7 +29,7 @@ public class ArgumentAttributeMaxHealth extends ArgumentAttributeSet {
 
 	@Override
 	public String getSyntax() {
-		return "/attribute maxhealth <value>";
+		return "/" + this.getCommand().getName() + " maxhealth <value>";
 	}
 
 }

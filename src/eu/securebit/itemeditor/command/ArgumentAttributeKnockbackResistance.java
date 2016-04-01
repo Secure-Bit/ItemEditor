@@ -5,8 +5,13 @@ import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.ArgumentAttributeSet;
+import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentAttributeKnockbackResistance extends ArgumentAttributeSet {
+
+	public ArgumentAttributeKnockbackResistance(BasicCommand command) {
+		super(command);
+	}
 
 	@Override
 	public String validateItem(ItemStack item) {
@@ -25,7 +30,7 @@ public class ArgumentAttributeKnockbackResistance extends ArgumentAttributeSet {
 
 	@Override
 	public String getSyntax() {
-		return "/attribute knockbackresistance <value> (between 0 and 100, percentage)";
+		return "/" + this.getCommand().getName() + " knockbackresistance <value> (between 0 and 100, percentage)";
 	}
 
 }

@@ -8,19 +8,18 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import eu.securebit.itemeditor.Main;
-import lib.securebit.itemeditor.commands.UnargumentedCommand;
-import lib.securebit.itemeditor.commands.settings.LayoutCommandSettings;
+import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
 import net.md_5.bungee.api.ChatColor;
 
-public class CommandRename extends UnargumentedCommand {
+public class CommandRename extends CustomUnargumentedCommand {
 
 	public CommandRename() {
-		super("rename", new LayoutCommandSettings(Main.layout()), Main.instance());
+		super("rename", Main.instance().getCommandPrefix());
 		
 		this.setOnlyPlayers(true);
 		this.setAliases("changename", "ren", "re");
 		this.setPermission("ie.rename");
-		this.setUsage("/rename <new display name>");
+		this.setUsage("/" + this.getName() + " <new display name>");
 		this.setDescription("Changes the display name of an item.");
 	}
 	
