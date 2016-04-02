@@ -20,8 +20,8 @@ public class CommandRename extends CustomUnargumentedCommand {
 		this.setOnlyPlayers(true);
 		this.setAliases("changename", "ren", "re");
 		this.setPermission("ie.rename");
-		this.setUsage("/" + this.getName() + " <new display name>");
-		this.setDescription("Changes the display name of an item.");
+		this.setUsage(Strings.get(Strings.USAGE_COMMAND_RENAME, this.getName()));
+		this.setDescription(Strings.get(Strings.DESCRIPTION_RENAME));
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -44,7 +44,7 @@ public class CommandRename extends CustomUnargumentedCommand {
 		meta.setDisplayName("§r" + ChatColor.translateAlternateColorCodes('&', newName));
 		item.setItemMeta(meta);
 		
-		Main.layout().message(player, "+ItemStack successfully renamed!+");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_ITEM_RENAMED));
 		
 		return true;
 	}

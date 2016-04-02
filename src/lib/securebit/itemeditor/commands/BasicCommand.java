@@ -10,6 +10,7 @@ import org.bukkit.command.PluginIdentifiableCommand;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.Plugin;
 
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.Validate;
 import lib.securebit.itemeditor.commands.nms.DynamicCommand;
 import lib.securebit.itemeditor.commands.nms.ReflectionCommand;
@@ -99,7 +100,7 @@ public abstract class BasicCommand implements CommandExecutor, PluginIdentifiabl
 		}
 		
 		if (!ReflectionCommand.check()) {
-			Bukkit.getConsoleSender().sendMessage("[CommandManager] The command " + this.name + " could not be created!");
+			Bukkit.getConsoleSender().sendMessage("[CommandManager] " + Strings.get(Strings.ERROR_CMD_NOT_CREATED, this.name));
 		}
 		
 		ReflectionCommand.COMMAND_MAP.register((this.key == null || this.key.isEmpty() || this.key.trim().isEmpty()) ? this.name : this.key, dynCmd);
@@ -107,7 +108,7 @@ public abstract class BasicCommand implements CommandExecutor, PluginIdentifiabl
 	
 	public void unregister() {
 		if (!ReflectionCommand.check()) {
-			Bukkit.getConsoleSender().sendMessage("[CommandManager] The command " + this.name + " could not be unregistered!");
+			Bukkit.getConsoleSender().sendMessage("[CommandManager] " + Strings.get(Strings.ERROR_CMD_NOT_UNREGISTERED, this.name));
 		}
 		
 		Map<String, Command> commands = ReflectionCommand.COMMANDS;

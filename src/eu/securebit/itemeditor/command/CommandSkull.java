@@ -9,16 +9,17 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomUnargumentedCommand;
+import eu.securebit.itemeditor.config.Strings;
 
 public class CommandSkull extends CustomUnargumentedCommand {
 
 	public CommandSkull() {
 		super("skull", Main.instance().getCommandPrefix());
 		
-		this.setUsage("/" + this.getName() + " [player]");
+		this.setUsage(Strings.get(Strings.USAGE_COMMAND_SKULL, this.getName()));
 		this.setOnlyPlayers(true);
 		this.setPermission("ie.skull");
-		this.setDescription("Getting a skull by username.");
+		this.setDescription(Strings.get(Strings.DESCRIPTION_SKULL));
 	}
 
 	@SuppressWarnings("deprecation")
@@ -42,7 +43,7 @@ public class CommandSkull extends CustomUnargumentedCommand {
 		
 		SkullMeta meta = (SkullMeta) skull.getItemMeta();
 		if (!meta.setOwner(username)) {
-			Main.layout().message(player, "-Cannot resolve username!-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_RESOLVE_USERNAME));
 			return true;
 		}
 		
@@ -52,7 +53,7 @@ public class CommandSkull extends CustomUnargumentedCommand {
 			player.getInventory().addItem(skull);
 		}
 		
-		Main.layout().message(player, "+Skull given! Username: " + username + "+");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_SKULL_GIVEN, username));
 		
 		return true;
 	}

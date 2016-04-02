@@ -15,11 +15,11 @@ public class CommandDurability extends CustomUnargumentedCommand {
 	public CommandDurability() {
 		super("durability", Main.instance().getCommandPrefix());
 		
-		this.setUsage("/" + this.getName() + " [value]");
+		this.setUsage(Strings.get(Strings.USAGE_COMMAND_DURABILITY, this.getName()));
 		this.setOnlyPlayers(true);
 		this.setPermission("ie.durability");
 		this.setAliases("setdurability, changedurability, modifydurability");
-		this.setDescription("Sets / shows the durability of an item.");
+		this.setDescription(Strings.get(Strings.DESCRIPTION_DURABILITY));
 	}
 
 	@SuppressWarnings("deprecation")
@@ -40,12 +40,12 @@ public class CommandDurability extends CustomUnargumentedCommand {
 		if (args.length == 0) {
 			short durability = (short) (item.getType().getMaxDurability() - item.getDurability());
 			int value = (int) Math.round(100 * (double) durability / (double) item.getType().getMaxDurability());
-			Main.layout().message(player, "+Durability of your " + item.getType().toString() + ": " + value + "%+");
+			Main.layout().message(player, Strings.get(Strings.SUCCESS_DURABILITY_VALUE, item.getType().toString(), value));
 			return true;
 		}
 		
 		if (!Main.isNumber(args[0], 0, 100)) {
-			Main.layout().message(player, "-Please type a valid integer between 0 and 100.-");
+			Main.layout().message(player, Strings.get(Strings.ERROR_INVALID_INTEGER, 0, 100));
 			return true;
 		}
 		
@@ -53,7 +53,7 @@ public class CommandDurability extends CustomUnargumentedCommand {
 		int durabilityValue = (int) (item.getType().getMaxDurability() - percentageValue * item.getType().getMaxDurability());
 		item.setDurability((short) durabilityValue);
 		
-		Main.layout().message(player, "+Success! Durability of your " + item.getType().toString() + " set to " + (int) (percentageValue * 100) + "%+");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_DURABILITY_SET, item.getType().toString(), (int) (percentageValue * 100)));
 				
 		return true;
 	}

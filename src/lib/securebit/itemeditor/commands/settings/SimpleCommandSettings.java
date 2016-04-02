@@ -4,6 +4,11 @@ import lib.securebit.itemeditor.commands.CommandSettings;
 
 public class SimpleCommandSettings implements CommandSettings {
 
+	/*
+	 * Notice: This file does not need to be translated!
+	 * LayoutCommandSettings is used instead.
+	 */
+	
 	private final String messagePrefix;
 	private final String messageNoPermission;
 	private final String messageSyntax;

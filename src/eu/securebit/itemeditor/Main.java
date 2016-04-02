@@ -101,7 +101,7 @@ public class Main extends JavaPlugin {
 			this.commandPrefix = this.getConfig().getString(ConfigValue.NO_CONFLICT_PREFIX);
 		}
 		
-		String language = this.getConfig().getString("language");
+		String language = this.getConfig().getString(ConfigValue.LANGUAGE);
 		if (language.equalsIgnoreCase("de") || language.equalsIgnoreCase("german")) {
 			language = "de";
 			Bukkit.getPluginManager().registerEvents(new ListenerGermanLanguageJoin(), this);

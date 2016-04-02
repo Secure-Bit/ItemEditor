@@ -39,7 +39,7 @@ public class CommandHideInfo extends CustomUnargumentedCommand {
 		meta.addItemFlags(ItemFlag.values());
 		item.setItemMeta(meta);
 		
-		Main.layout().message(player, "+ItemStack successfully modified!+");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_ITEM_MODIFIED));
 		
 		return true;
 	}

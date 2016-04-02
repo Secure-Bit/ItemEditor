@@ -20,8 +20,8 @@ public class CommandShowInfo extends CustomUnargumentedCommand {
 		this.setOnlyPlayers(true);
 		this.setAliases("addinfo", "ainfo", "sinfo", "showflags");
 		this.setPermission("ie.addinfo");
-		this.setUsage("/" + this.getName());
-		this.setDescription("Makes the item flags visible.");
+		this.setUsage(Strings.get(Strings.USAGE_COMMAND_SHOWINFO, this.getName()));
+		this.setDescription(Strings.get(Strings.DESCRIPTION_SHOWINFO));
 	}
 
 	@SuppressWarnings("deprecation")
@@ -39,7 +39,7 @@ public class CommandShowInfo extends CustomUnargumentedCommand {
 		meta.removeItemFlags(ItemFlag.values());
 		item.setItemMeta(meta);
 		
-		Main.layout().message(player, "+ItemStack successfully modified!+");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_ITEM_MODIFIED));
 		
 		return true;
 	}
