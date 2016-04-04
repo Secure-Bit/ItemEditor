@@ -83,7 +83,6 @@ public final class Strings {
 	public static final String SUCCESS_SKULL_GIVEN = "success.skull_given";
 	public static final String SUCCESS_ITEM_RENAMED = "success.item_renamed";
 	public static final String SUCCESS_ITEM_MODIFIED = "success.item_modified";
-	public static final String SUCCESS_ATTRIBUTE_SET = "success.attribute_set";
 	public static final String SUCCESS_DURABILITY_SET = "success.durability_set";
 	public static final String SUCCESS_DURABILITY_VALUE = "success.durability_value";
 	
@@ -91,6 +90,9 @@ public final class Strings {
 	public static final String SUCCESS_POTION_COLORED = "success.potion_colored";
 	public static final String SUCCESS_POTION_EFFECT_ADD = "success.potion_effect_add";
 	public static final String SUCCESS_POTION_EFFECT_REMOVED = "success.potion_effect_removed";
+	
+	public static final String SUCCESS_ATTRIBUTE_SET = "success.attribute_set";
+	public static final String SUCCESS_ATTRIBUTES_CLEARED = "success.attributes_cleared";
 	
 	
 	
@@ -106,6 +108,8 @@ public final class Strings {
 	public static final String USAGE_COMMAND_POTION_COLOR = "usage.command.potion.color";
 	public static final String USAGE_COMMAND_POTION_ADDEFFECT = "usage.command.potion.addeffect";
 	public static final String USAGE_COMMAND_POTION_REMOVEEFFECT = "usage.command.potion.removeeffect";
+	
+	public static final String USAGE_COMMAND_ATTRIBUTE_CLEAR = "usage.command.attribute.clear";
 	
 	
 	

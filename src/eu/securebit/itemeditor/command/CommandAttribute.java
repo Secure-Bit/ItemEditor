@@ -61,7 +61,7 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 				layout.line("/" + this.getName() + " speed <value>");
 				layout.line("/" + this.getName() + " knockbackresistance <value>");
 				layout.line("/" + this.getName() + " attackspeed <value>");
-				layout.line("/" + this.getName() + " clear");
+				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_CLEAR, this.getName()));
 			}
 			
 			layout.commit(sender);

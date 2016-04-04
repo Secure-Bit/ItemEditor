@@ -23,7 +23,7 @@ public class ArgumentAttributeClear extends CustomArgument {
 
 	@Override
 	public String getSyntax() {
-		return "/" + this.getCommand().getName() + " clear";
+		return Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_CLEAR, this.getCommand().getName());
 	}
 
 	@SuppressWarnings("deprecation")
@@ -50,7 +50,7 @@ public class ArgumentAttributeClear extends CustomArgument {
 		ReflectionUtil.setValue(fieldTag, nmsItem, tag);
 		
 		player.setItemInHand((ItemStack) NBTReflection.convertToBukkitItem(nmsItem));
-		Main.layout().message(player, "Success!");
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_ATTRIBUTES_CLEARED, item.getType().toString()));
 		
 		return true;
 	}
