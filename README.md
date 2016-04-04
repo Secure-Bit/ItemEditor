@@ -23,6 +23,11 @@
     Visit our page on <a href="https://www.spigotmc.org/resources/itemeditor-1-8-1-9.20794/" target="_blank">SpigotMC</a> to get examples, a complete list of currently available features, commands, permissions and further instructions.
 </p>
 
+<h2>Website</h2>
+<p>
+	If you are looking for further information, just <a href="http://securebit.bitbucket.org/itemeditor" target="_blank">visit our website</a>.
+</p>
+
 <h2>Contributing</h2>
 <p>
     Want to contribute to this project by hacking the source?
