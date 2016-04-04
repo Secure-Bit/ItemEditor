@@ -85,6 +85,8 @@ public class ArgumentPotionColor extends CustomArgument {
 		meta.clearCustomEffects();
 		item.setItemMeta(meta);
 		
+		Main.layout().message(player, Strings.get(Strings.SUCCESS_POTION_COLORED, type.getName()));
+		
 		return true;
 	}
 

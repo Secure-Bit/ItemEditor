@@ -88,6 +88,7 @@ public final class Strings {
 	public static final String SUCCESS_DURABILITY_VALUE = "success.durability_value";
 	
 	public static final String SUCCESS_POTION_CLEARED = "success.potion_cleared";
+	public static final String SUCCESS_POTION_COLORED = "success.potion_colored";
 	public static final String SUCCESS_POTION_EFFECT_ADD = "success.potion_effect_add";
 	public static final String SUCCESS_POTION_EFFECT_REMOVED = "success.potion_effect_removed";
 	
