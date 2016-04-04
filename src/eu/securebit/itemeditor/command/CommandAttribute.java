@@ -24,7 +24,7 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 		if (Main.getMinecraftVersion() >= 18) {
 			this.enabled = true;
 			
-			// TODO Implement attribute clear command
+			this.registerArgument("clear", new ArgumentAttributeClear(this));
 			this.registerArgument("damage", new ArgumentAttributeDamage(this));
 			
 			if (Main.getMinecraftVersion() >= 19) {
@@ -61,6 +61,7 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 				layout.line("/" + this.getName() + " speed <value>");
 				layout.line("/" + this.getName() + " knockbackresistance <value>");
 				layout.line("/" + this.getName() + " attackspeed <value>");
+				layout.line("/" + this.getName() + " clear");
 			}
 			
 			layout.commit(sender);

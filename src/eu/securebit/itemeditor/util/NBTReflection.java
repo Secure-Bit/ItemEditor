@@ -75,7 +75,6 @@ public class NBTReflection {
 	}
 	
 	public static void removeDuplicates(Object tagList, String attributeName) {
-		// Fallback solution
 		Field fieldInternalList = ReflectionUtil.getDeclaredField(classNBTTagList, "list");
 		List<?> list = (List<?>) ReflectionUtil.createObject(fieldInternalList, tagList);
 		for (int i = 0; i < list.size(); i++) {
@@ -85,6 +84,15 @@ public class NBTReflection {
 				list.remove(i);
 			}
 		}
+		
+		ReflectionUtil.setValue(fieldInternalList, tagList, list);
+	}
+	
+	public static void clearAttributeList(Object tagList) {
+		Field fieldInternalList = ReflectionUtil.getDeclaredField(classNBTTagList, "list");
+		List<?> list = (List<?>) ReflectionUtil.createObject(fieldInternalList, tagList);
+		list.clear();
+		ReflectionUtil.setValue(fieldInternalList, tagList, list);
 	}
 	
 	public static void writeAttribute(Object attribute, String attributeName, double value) {
