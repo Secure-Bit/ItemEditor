@@ -33,6 +33,7 @@ public class ArgumentPotionRemoveEffect extends CustomArgument {
 			Main.layout().message(player, Strings.get(Strings.ERROR_NO_POTION_IN_HAND));
 			return true;
 		}
+		
 	
 		if (args.length != 2) {
 			return false;

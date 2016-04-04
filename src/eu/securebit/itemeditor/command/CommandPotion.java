@@ -21,6 +21,7 @@ public class CommandPotion extends CustomArgumentCommand implements DefaultExecu
 		this.registerArgument("clear", new ArgumentPotionClear(this));
 		this.registerArgument("addeffect", new ArgumentPotionAddEffect(this));
 		this.registerArgument("rmeffect", new ArgumentPotionRemoveEffect(this));
+		this.registerArgument("color", new ArgumentPotionColor(this));
 	}
 
 	@Override
@@ -30,7 +31,7 @@ public class CommandPotion extends CustomArgumentCommand implements DefaultExecu
 		layout.line(Strings.get(Strings.USAGE_COMMAND_POTION_CLEAR, this.getName()));
 		layout.line(Strings.get(Strings.USAGE_COMMAND_POTION_ADDEFFECT, this.getName()));
 		layout.line(Strings.get(Strings.USAGE_COMMAND_POTION_REMOVEEFFECT, this.getName()));
-//		layout.line("/" + this.getName() + " color {blue, red, yellow, ... | <id>}"); // TODO Implement this command
+		layout.line(Strings.get(Strings.USAGE_COMMAND_POTION_COLOR, this.getName()));
 		layout.commit(sender);
 		return true;
 	}

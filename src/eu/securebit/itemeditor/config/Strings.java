@@ -102,6 +102,7 @@ public final class Strings {
 	public static final String USAGE_COMMAND_ARMOR_COLOR = "usage.command.armor.color";
 	
 	public static final String USAGE_COMMAND_POTION_CLEAR = "usage.command.potion.clear";
+	public static final String USAGE_COMMAND_POTION_COLOR = "usage.command.potion.color";
 	public static final String USAGE_COMMAND_POTION_ADDEFFECT = "usage.command.potion.addeffect";
 	public static final String USAGE_COMMAND_POTION_REMOVEEFFECT = "usage.command.potion.removeeffect";
 	

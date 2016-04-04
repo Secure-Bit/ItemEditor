@@ -1,5 +1,7 @@
 package eu.securebit.itemeditor;
 
+import java.util.ResourceBundle;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.ConsoleCommandSender;
@@ -138,6 +140,7 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		ConsoleCommandSender sender = Bukkit.getConsoleSender();
+		ResourceBundle.clearCache();
 		Main.layout.message(sender, Strings.get(Strings.CONSOLE_PLUGIN_DISABLED));		
 	}
 	
