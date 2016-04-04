@@ -19,7 +19,7 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 		
 		this.setPermission("ie.attribute");
 		this.setExecutor(this);
-		this.setDescription("Alters generic attributes of items.");
+		this.setDescription(Strings.get(Strings.DESCRIPTION_ATTRIBUTE));
 		
 		if (Main.getMinecraftVersion() >= 18) {
 			this.enabled = true;
@@ -53,14 +53,14 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 			InfoLayout layout = Main.layout().clone();
 			layout.begin();
 			layout.category("Attribute$-Command");
-			layout.line("/" + this.getName() + " damage <value>");
+			layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_DAMAGE, this.getName()));
 			
 			if (Main.getMinecraftVersion() >= 19) {
-				layout.line("/" + this.getName() + " protection <value>");
-				layout.line("/" + this.getName() + " maxhealth <value>");
-				layout.line("/" + this.getName() + " speed <value>");
-				layout.line("/" + this.getName() + " knockbackresistance <value>");
-				layout.line("/" + this.getName() + " attackspeed <value>");
+				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_PROTECTION, this.getName()));
+				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_MAXHEALTH, this.getName()));
+				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_SPEED, this.getName()));
+				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_KNOCKBACKRESISTANCE, this.getName()));
+				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_ATTACKSPEED, this.getName()));
 				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_CLEAR, this.getName()));
 			}
 			

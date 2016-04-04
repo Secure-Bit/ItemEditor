@@ -110,6 +110,12 @@ public final class Strings {
 	public static final String USAGE_COMMAND_POTION_REMOVEEFFECT = "usage.command.potion.removeeffect";
 	
 	public static final String USAGE_COMMAND_ATTRIBUTE_CLEAR = "usage.command.attribute.clear";
+	public static final String USAGE_COMMAND_ATTRIBUTE_SPEED = "usage.command.attribute.speed";
+	public static final String USAGE_COMMAND_ATTRIBUTE_DAMAGE = "usage.command.attribute.damage";
+	public static final String USAGE_COMMAND_ATTRIBUTE_MAXHEALTH = "usage.command.attribute.maxhealth";
+	public static final String USAGE_COMMAND_ATTRIBUTE_PROTECTION = "usage.command.attribute.protection";
+	public static final String USAGE_COMMAND_ATTRIBUTE_ATTACKSPEED = "usage.command.attribute.attackspeed";
+	public static final String USAGE_COMMAND_ATTRIBUTE_KNOCKBACKRESISTANCE = "usage.command.attribute.knockbackresistance";
 	
 	
 	
@@ -118,6 +124,7 @@ public final class Strings {
 	public static final String DESCRIPTION_SKULL = "description.skull";
 	public static final String DESCRIPTION_RENAME = "description.rename";
 	public static final String DESCRIPTION_SHOWINFO = "description.showinfo";
+	public static final String DESCRIPTION_ATTRIBUTE = "description.attribute";
 	public static final String DESCRIPTION_DURABILITY = "description.durability";
 	
 	

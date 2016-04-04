@@ -56,7 +56,7 @@ public class ArgumentAttributeProtection extends ArgumentAttributeSet {
 
 	@Override
 	public String getSyntax() {
-		return "/" + this.getCommand().getName() + " protection <value> (between 0 and 30)";
+		return Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_PROTECTION, this.getCommand().getName());
 	}
 
 }

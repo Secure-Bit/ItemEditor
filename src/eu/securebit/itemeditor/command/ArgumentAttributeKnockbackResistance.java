@@ -5,6 +5,7 @@ import org.bukkit.inventory.ItemStack;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.ArgumentAttributeSet;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.commands.BasicCommand;
 
 public class ArgumentAttributeKnockbackResistance extends ArgumentAttributeSet {
@@ -30,7 +31,7 @@ public class ArgumentAttributeKnockbackResistance extends ArgumentAttributeSet {
 
 	@Override
 	public String getSyntax() {
-		return "/" + this.getCommand().getName() + " knockbackresistance <value> (between 0 and 100, percentage)";
+		return Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_KNOCKBACKRESISTANCE, this.getCommand().getName());
 	}
 
 }
