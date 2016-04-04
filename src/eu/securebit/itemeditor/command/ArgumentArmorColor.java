@@ -22,7 +22,7 @@ public class ArgumentArmorColor extends CustomArgument {
 
 	@Override
 	public String getSyntax() {
-		return "/" + this.getCommand().getName() + " color {<color> | <red> <green> <blue>}";
+		return Strings.get(Strings.USAGE_COMMAND_ARMOR_COLOR, this.getCommand().getName());
 	}
 
 	@SuppressWarnings("deprecation")

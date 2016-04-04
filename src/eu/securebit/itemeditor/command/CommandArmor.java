@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomArgumentCommand;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.InfoLayout;
 import lib.securebit.itemeditor.commands.DefaultExecutor;
 
@@ -26,7 +27,7 @@ public class CommandArmor extends CustomArgumentCommand implements DefaultExecut
 		InfoLayout layout = Main.layout().clone();
 		layout.begin();
 		layout.category("Armor$-Command");
-		layout.line("/" + this.getName() + " color {<color> | <red> <green> <blue>}");
+		layout.line(Strings.get(Strings.USAGE_COMMAND_ARMOR_COLOR, this.getName()));
 		layout.line("/" + this.getName() + " removecolor");
 		layout.commit(sender);
 		

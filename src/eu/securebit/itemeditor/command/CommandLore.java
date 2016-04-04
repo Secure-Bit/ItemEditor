@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 
 import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomArgumentCommand;
+import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.InfoLayout;
 import lib.securebit.itemeditor.commands.DefaultExecutor;
 
@@ -16,7 +17,7 @@ public class CommandLore extends CustomArgumentCommand implements DefaultExecuto
 		this.setAliases("lore", "desc", "description");
 		this.setPermission("ie.describe");
 		this.setExecutor(this);
-		this.setDescription("Modifies the lore of an item.");
+		this.setDescription(Strings.get(Strings.DESCRIPTION_LORE));
 		this.registerArgument("addline", new ArgumentLoreAddline(this));
 		this.registerArgument("rmline", new ArgumentLoreRmline(this));
 		this.registerArgument("clear", new ArgumentLoreClear(this));
@@ -27,9 +28,9 @@ public class CommandLore extends CustomArgumentCommand implements DefaultExecuto
 		InfoLayout layout = Main.layout().clone();
 		layout.begin();
 		layout.category("Describe$-Command");
-		layout.line("/" + this.getName() + " addline <line>");
-		layout.line("/" + this.getName() + " rmline [line]");
-		layout.line("/" + this.getName() + " clear");
+		layout.line("/describe addline <line>");
+		layout.line("/describe rmline [index]");
+		layout.line("/describe clear");
 		layout.barrier();
 		layout.commit(sender);
 		

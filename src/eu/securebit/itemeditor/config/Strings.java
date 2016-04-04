@@ -50,9 +50,11 @@ public final class Strings {
 	public static final String ERROR_NO_ITEM_IN_HAND = "error.no_item_in_hand";
 	public static final String ERROR_INVALID_INTEGER = "error.invalid_integer";
 	public static final String ERROR_RESOLVE_USERNAME = "error.resolve_username";
+	public static final String ERROR_NO_POTION_IN_HAND = "error.no_potion_in_hand";
 	public static final String ERROR_NO_COLOR_PROVIDED = "error.no_color_provided";
 	public static final String ERROR_PERMISSION_DENIED = "error.permission_denied";
 	public static final String ERROR_ARGUMENT_NOT_FOUND = "error.argument_not_found";
+	public static final String ERROR_RESOLVE_POTION_TYPE = "error.resolve_potion";
 	public static final String ERROR_ONLY_PLAYERS_ALLOWED = "error.only_players_allowed";
 	public static final String ERROR_LORE_LINE_NOT_EXISTING = "error.lore_line_not_existing";
 	public static final String ERROR_PARAMETER_INDEX_INVALID = "error.parameter_index_invalid";
@@ -85,6 +87,10 @@ public final class Strings {
 	public static final String SUCCESS_DURABILITY_SET = "success.durability_set";
 	public static final String SUCCESS_DURABILITY_VALUE = "success.durability_value";
 	
+	public static final String SUCCESS_POTION_CLEARED = "success.potion_cleared";
+	public static final String SUCCESS_POTION_EFFECT_ADD = "success.potion_effect_add";
+	public static final String SUCCESS_POTION_EFFECT_REMOVED = "success.potion_effect_removed";
+	
 	
 	
 	// ---------- usage ---------- //
@@ -92,9 +98,17 @@ public final class Strings {
 	public static final String USAGE_COMMAND_RENAME = "usage.command.rename";
 	public static final String USAGE_COMMAND_SHOWINFO = "usage.command.showinfo";
 	public static final String USAGE_COMMAND_DURABILITY = "usage.command.durability";
+		
+	public static final String USAGE_COMMAND_ARMOR_COLOR = "usage.command.armor.color";
+	
+	public static final String USAGE_COMMAND_POTION_CLEAR = "usage.command.potion.clear";
+	public static final String USAGE_COMMAND_POTION_ADDEFFECT = "usage.command.potion.addeffect";
+	public static final String USAGE_COMMAND_POTION_REMOVEEFFECT = "usage.command.potion.removeeffect";
+	
 	
 	
 	// ---------- description ---------- //
+	public static final String DESCRIPTION_LORE = "description.lore";
 	public static final String DESCRIPTION_SKULL = "description.skull";
 	public static final String DESCRIPTION_RENAME = "description.rename";
 	public static final String DESCRIPTION_SHOWINFO = "description.showinfo";

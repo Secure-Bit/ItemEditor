@@ -13,6 +13,7 @@ import eu.securebit.itemeditor.command.CommandDurability;
 import eu.securebit.itemeditor.command.CommandHideInfo;
 import eu.securebit.itemeditor.command.CommandItemInfo;
 import eu.securebit.itemeditor.command.CommandLore;
+import eu.securebit.itemeditor.command.CommandPotion;
 import eu.securebit.itemeditor.command.CommandRename;
 import eu.securebit.itemeditor.command.CommandShowInfo;
 import eu.securebit.itemeditor.command.CommandSkull;
@@ -70,6 +71,12 @@ public class Main extends JavaPlugin {
 				
 	}
 	
+	public static boolean isPotion(ItemStack item) {
+		return item.getType().toString().equals("POTION")
+				|| item.getType().toString().equals("LINGERING_POTION")
+				|| item.getType().toString().equals("SPLASH_POTION");
+	}
+	
 	public static boolean isNumber(String string) {
 		return isNumber(string, Integer.MIN_VALUE, Integer.MAX_VALUE);
 	}
@@ -82,6 +89,7 @@ public class Main extends JavaPlugin {
 			return false;
 		}
 	}
+	
 	
 	private String commandPrefix;
 	
@@ -122,6 +130,7 @@ public class Main extends JavaPlugin {
 		new CommandAttribute().create();
 		new CommandItemInfo().create();
 		new CommandDurability().create();
+		new CommandPotion().create();
 		
 		Main.layout.message(sender, Strings.get(Strings.CONSOLE_PLUGIN_ENABLED));
 	}
