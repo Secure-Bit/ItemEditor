@@ -22,9 +22,16 @@ import lib.securebit.itemeditor.commands.BasicCommand;
 public class ArgumentPotionColor extends CustomArgument {
 	
 	private static final List<PotionColorData> COLOR_TABLE = Arrays.asList(
-			new PotionColorData(1, "blue"),
-			new PotionColorData(5, "dark_red", "darkred"),
-			new PotionColorData(6, "red", "lightred", "light_red")
+			new PotionColorData(0x01, "blue"),
+			new PotionColorData(0x05, "dark_red", "darkred"),
+			new PotionColorData(0x06, "red", "lightred", "light_red"),
+			new PotionColorData(0x07, "purple"),
+			new PotionColorData(0x08, "lime", "light_green", "lightgreen"),
+			new PotionColorData(0x0A, "pink", "light_purple", "lightpurple"),
+			new PotionColorData(0x0C, "orange"),
+			new PotionColorData(0x0D, "dark_blue", "darkblue"),
+			new PotionColorData(0x13, "dark_green", "darkgreen"),
+			new PotionColorData(0x1A, "green")
 	);
 	
 	public ArgumentPotionColor(BasicCommand command) {

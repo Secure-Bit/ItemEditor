@@ -24,6 +24,7 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 		if (Main.getMinecraftVersion() >= 18) {
 			this.enabled = true;
 			
+			// TODO Implement attribute clear command
 			this.registerArgument("damage", new ArgumentAttributeDamage(this));
 			
 			if (Main.getMinecraftVersion() >= 19) {
