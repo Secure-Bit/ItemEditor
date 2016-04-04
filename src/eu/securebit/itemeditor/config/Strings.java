@@ -54,6 +54,7 @@ public final class Strings {
 	public static final String ERROR_NO_COLOR_PROVIDED = "error.no_color_provided";
 	public static final String ERROR_PERMISSION_DENIED = "error.permission_denied";
 	public static final String ERROR_ARGUMENT_NOT_FOUND = "error.argument_not_found";
+	public static final String ERROR_FEATURE_UNAVAILABLE = "error.feature_unavailable";
 	public static final String ERROR_RESOLVE_POTION_TYPE = "error.resolve_potion";
 	public static final String ERROR_ONLY_PLAYERS_ALLOWED = "error.only_players_allowed";
 	public static final String ERROR_LORE_LINE_NOT_EXISTING = "error.lore_line_not_existing";

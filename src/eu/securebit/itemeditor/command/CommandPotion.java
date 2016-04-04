@@ -7,6 +7,7 @@ import eu.securebit.itemeditor.Main;
 import eu.securebit.itemeditor.command.abstracts.CustomArgumentCommand;
 import eu.securebit.itemeditor.config.Strings;
 import lib.securebit.itemeditor.InfoLayout;
+import lib.securebit.itemeditor.commands.Argument;
 import lib.securebit.itemeditor.commands.DefaultExecutor;
 
 public class CommandPotion extends CustomArgumentCommand implements DefaultExecutor {
@@ -21,7 +22,15 @@ public class CommandPotion extends CustomArgumentCommand implements DefaultExecu
 		this.registerArgument("clear", new ArgumentPotionClear(this));
 		this.registerArgument("addeffect", new ArgumentPotionAddEffect(this));
 		this.registerArgument("rmeffect", new ArgumentPotionRemoveEffect(this));
-		this.registerArgument("color", new ArgumentPotionColor(this));
+		
+		Argument<Main> argumentColor;
+		if (Main.getMinecraftVersion() >= 19) {
+			argumentColor = new ArgumentPotionColor(this);
+		} else {
+			argumentColor = new ArgumentUnavailable();
+		}
+		
+		this.registerArgument("color", argumentColor);
 	}
 
 	@Override
@@ -31,7 +40,11 @@ public class CommandPotion extends CustomArgumentCommand implements DefaultExecu
 		layout.line(Strings.get(Strings.USAGE_COMMAND_POTION_CLEAR, this.getName()));
 		layout.line(Strings.get(Strings.USAGE_COMMAND_POTION_ADDEFFECT, this.getName()));
 		layout.line(Strings.get(Strings.USAGE_COMMAND_POTION_REMOVEEFFECT, this.getName()));
-		layout.line(Strings.get(Strings.USAGE_COMMAND_POTION_COLOR, this.getName()));
+		
+		if (Main.getMinecraftVersion() >= 19) {
+			layout.line(Strings.get(Strings.USAGE_COMMAND_POTION_COLOR, this.getName()));
+		}
+		
 		layout.commit(sender);
 		return true;
 	}

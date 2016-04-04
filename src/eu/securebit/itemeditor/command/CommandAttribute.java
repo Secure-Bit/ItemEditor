@@ -34,7 +34,7 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 				this.registerArgument("attackspeed", new ArgumentAttributeAttackSpeed(this));
 				this.registerArgument("maxhealth", new ArgumentAttributeMaxHealth(this));
 			} else {
-				ArgumentUnavailable argument = new ArgumentUnavailable();
+				ArgumentUnavailable argument = new CommandAttribute.ArgumentUnavailable();
 				this.registerArgument("protection", argument);
 				this.registerArgument("knockbackresistance", argument);
 				this.registerArgument("speed", argument);
@@ -53,6 +53,7 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 			InfoLayout layout = Main.layout().clone();
 			layout.begin();
 			layout.category("Attribute$-Command");
+			layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_CLEAR, this.getName()));
 			layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_DAMAGE, this.getName()));
 			
 			if (Main.getMinecraftVersion() >= 19) {
@@ -61,7 +62,6 @@ public class CommandAttribute extends CustomArgumentCommand implements DefaultEx
 				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_SPEED, this.getName()));
 				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_KNOCKBACKRESISTANCE, this.getName()));
 				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_ATTACKSPEED, this.getName()));
-				layout.line(Strings.get(Strings.USAGE_COMMAND_ATTRIBUTE_CLEAR, this.getName()));
 			}
 			
 			layout.commit(sender);
